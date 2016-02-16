@@ -16,7 +16,7 @@
 > [Install MongoDB Community Edition on OS X — MongoDB Manual 3.2](https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/)
 > [Homebrew — The missing package manager for OS X](http://brew.sh/)
 
-	> \$ sudo mkdir -p /data/db
+	> $ sudo mkdir -p /data/db <br/>
 	> \$ sudo chown com2best /data/db
 
 
