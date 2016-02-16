@@ -5,7 +5,7 @@
 ###1. 설치
 
 * [Sublime Text: The text editor you'll fall in love with](https://www.sublimetext.com/)
-> [Sublime Text 3 한글 관련 문제 해결 방법](http://blog.gaerae.com/2015/03/sublime-text-3-korean.html)
+> [Sublime Text 3 한글 관련 문제 해결 방법](http://blog.gaerae.com/2015/03/sublime-text-3-korean.html) <br/>
 > [나만 모르는 이야기 :: Sublime Text 설치 후 초기 세팅하기(기본 플러그인 포함)](http://jos39.tistory.com/243)
 
 * [Git](https://git-scm.com/)
@@ -13,7 +13,7 @@
 * [Installing Node.js via package manager | Node.js](https://nodejs.org/en/download/package-manager/#osx)
 
 * [MongoDB for GIANT Ideas | MongoDB](https://www.mongodb.org/)
-> [Install MongoDB Community Edition on OS X — MongoDB Manual 3.2](https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/)
+> [Install MongoDB Community Edition on OS X — MongoDB Manual 3.2](https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/) <br/>
 > [Homebrew — The missing package manager for OS X](http://brew.sh/)
 
 	> $ sudo mkdir -p /data/db <br/>
