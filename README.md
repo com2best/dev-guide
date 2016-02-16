@@ -17,7 +17,7 @@
 > [Homebrew — The missing package manager for OS X](http://brew.sh/)
 
 	> $ sudo mkdir -p /data/db <br/>
-	> \$ sudo chown com2best /data/db
+	> $ sudo chown com2best /data/db
 
 
 ###2. MEAN Stack
