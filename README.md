@@ -255,7 +255,53 @@ MEAN.js 는 MongoDB, ExpressJS, AngularJS, NodeJS를 사용한 MEAN Stack을 모
 
 종료시에는 터미널에서 [Ctrl+C]로 종료한다.
 
-####4.3. WebStorm 개발환경
+####4.3. MeanJS로 개발해 보기
+
+새로운 기능을 추가할 때는 기본이 되는 Articles나 비슷한 기능의 부분을 복사해서 시작하는 것이 편리하다.
+
+여기서는 articles를 복사하여 tests 라는 기능을 만들어 보기로 한다. 
+
+왼쪽 WebStorm Project View에서 modules > articles 를 복사[Command+C] 하여, modules에 포커스를 두고 붙여넣기[Command+V]를 한다.이 때 복사할 폴터 이름(New Name) 에 tests라고 입력하고 복사한다. 이때 폴더명은 복수로 한다. 
+
+![folder copy](https://raw.githubusercontent.com/com2best/dev-guide/master/images/copy1.png)
+
+복사한 폴더의 내부는 article 기준으로 되어 있으므로 article를 test로 Article를 Test로  tests 폴더 안의 모든 파일 안을 Replace한다. Project View 에서 tests 폴더에 포커스를 두고 Replace in Path[Command+Shift+R]을 실행한다. 이때 Case sensitive를 체크하고, Scope는 Directory를 선택하고 지정할 디렉토리가 tests로 되어 있어야 한다. Whole project를 선택하면 전체 프로젝트가 바뀌게 되므로 반드시 Directory만 선택되어 있도록 매우 주의하여야 한다. 
+
+![folder copy](https://raw.githubusercontent.com/com2best/dev-guide/master/images/replace1.png)
+
+![folder copy](https://raw.githubusercontent.com/com2best/dev-guide/master/images/replace2.png)
+
+아직 파일이름들은 article로 되어 있으므로, 파일명을 모두 바꾸어 주어야 하는데 터미널에서 moduels > tests 내부로 이동한 후, 아래와 같이 입력 실행한다. 아래 내용은 article이 들어 있는 파일명을 test로 바꾸어 준다. 이 명령은 현재 폴더 아래이 파일명에 article이 들어있는 것을 모두 변경하므로, 반드시 tests 폴더 아래로 이동하여 실행해야 한다.
+
+    $ find . -name '*article*' | while read f; do mv "$f" "${f//article/test}"; done;
+
+여기까지 되었으면 브라우져에서 다음 주소로 접속 하여 오류 없이 실행되는지 확인해 본다.
+
+    http://localhost:300/tests
+
+이제 tests에서 구현하고 싶은 기능을 변경하여 구현하면 된다. 일단 Model을 바꾸고, 그 Model에 맞게 Controller를 바꾸어 주는 것이 기본 절차 이다. 
+
+###5. 개발 디버깅 환경
+
+####5.1. Chrome 개발도구
+
+웹개발에 있어서 Chrome 개발도구는 필수로 사용되는 도구 이므로 잘 숙지하고 있어야한다. 파이어폭스 개발도구도 많이 사용되었었으나, 현재 시점에서는 Chrome 개발도구가 더욱 많이 사용되고 있다. Jaavascript 개발 뿐만 아니라 웹디자인 퍼블리셔 에게도 Chrome 개발도구는 필수이다.
+
+아래 동영상을 보고 숙지하도록 한다.
+
+* [둘러보기 - 생활코딩](https://opentutorials.org/course/580/2865)
+* [Elements - 생활코딩](https://opentutorials.org/course/580/2866)
+* [Sources - 생활코딩](https://opentutorials.org/course/580/2869)
+* [Console - 생활코딩](https://opentutorials.org/course/580/2872)
+* [리모트 디버깅 - 생활코딩](https://opentutorials.org/course/580/4152)
+
+유의할 점은 WebStorm 디버깅 모드에서 Chrome 개발도구를 열면 디버깅 모드가 꺼지는 현상이 있다. 디버깅 실행할 때 열린 Chrome Tab말고 새로운 Tab을 추가하여 같은 주소로 접속한 후 개발도구를 열면 Chrome 디버깅을 사용할 수 있고, 디버깅이 되는 본래 Tab에서는 WebStorm 디버깅 기능을 사용할 수 있다.
+
+AngularJS Extension도 설치해 두고 사용법을 알아두면 좋다.
+
+[AngularJS Batarang - Chrome Web Store](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
+
+####5.2. WebStorm 개발환경
 
 WebStorm 을 사용하는 경우는 아래와 같이 개발환경을 셋팅하고 디버깅이 되는 지 확인한다.
 
@@ -298,32 +344,6 @@ Break Point 위치는 MeanJS 버젼에 따라 달라질 수 있고 상황에 따
 
 실행한 예제 화면을 브라우져에서 접속하여 상단의 articles 메뉴를 클릭하여, WebStorm에서 위 두가지 Break Point 에서 중단되는 지 확인한다.
 계속 실행하기는 [Command+Alt+R]이고, 한줄씩 실행하기는 [F8] 이다.
-
-####4.4. MeanJS로 개발해 보기
-
-새로운 기능을 추가할 때는 기본이 되는 Articles나 비슷한 기능의 부분을 복사해서 시작하는 것이 편리하다.
-
-여기서는 articles를 복사하여 tests 라는 기능을 만들어 보기로 한다. 
-
-왼쪽 Project View에서 modules > articles 를 복사[Command+C] 하여, modules에 포커스를 두고 붙여넣기[Command+V]를 한다.이 때 복사할 폴터 이름(New Name) 에 tests라고 입력하고 복사한다. 이때 폴더명은 복수로 한다. 
-
-![folder copy](https://raw.githubusercontent.com/com2best/dev-guide/master/images/copy1.png)
-
-복사한 폴더의 내부는 article 기준으로 되어 있으므로 article를 test로 Article를 Test로  tests 폴더 안의 모든 파일 안을 Replace한다. Project View 에서 tests 폴더에 포커스를 두고 Replace in Path[Command+Shift+R]을 실행한다. 이때 Case sensitive를 체크하고, Scope는 Directory를 선택하고 지정할 디렉토리가 tests로 되어 있어야 한다. Whole project를 선택하면 전체 프로젝트가 바뀌게 되므로 반드시 Directory만 선택되어 있도록 매우 주의하여야 한다. 
-
-![folder copy](https://raw.githubusercontent.com/com2best/dev-guide/master/images/replace1.png)
-
-![folder copy](https://raw.githubusercontent.com/com2best/dev-guide/master/images/replace2.png)
-
-아직 파일이름들은 article로 되어 있으므로, 파일명을 모두 바꾸어 주어야 하는데 터미널에서 moduels > tests 내부로 이동한 후, 아래와 같이 입력 실행한다. 아래 내용은 article이 들어 있는 파일명을 test로 바꾸어 준다. 이 명령은 현재 폴더 아래이 파일명에 article이 들어있는 것을 모두 변경하므로, 반드시 tests 폴더 아래로 이동하여 실행해야 한다.
-
-    $ find . -name '*article*' | while read f; do mv "$f" "${f//article/test}"; done;
-
-여기까지 되었으면 브라우져에서 다음 주소로 접속 하여 오류 없이 실행되는지 확인해 본다.
-
-    http://localhost:300/tests
-
-이제 tests에서 구현하고 싶은 기능을 변경하여 구현하면 된다. 일단 Model을 바꾸고, 그 Model에 맞게 Controller를 바꾸어 주는 것이 기본 절차 이다. 
 
 ###5. Mobile App 개발
 
