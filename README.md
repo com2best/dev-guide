@@ -114,6 +114,7 @@ Node.js는 자바스크립트로 서버를 만들수 있는 프레임워크 이�
 처음부터 MEAN 의 각 기술들에 각각 학습하는 것 보다는 전반적인 개발방법을 볼 수 있는 학습 내용 위주로 먼저 살펴보고, 각 세부기술을 학습하는 방법으로 진행한다.
 
 아래 블로그는 개념을 잡기 쉬운 글들로 이루어져 있다. 블로그 목록이라 아래에 있는 글부터 역순으로 읽는다. 'Community 서비스'  제목 부터 있는 예제는 직접 코딩해서 따라해 본다.
+<<<<<<< HEAD
 
 * [AngularJS/Start MEAN Stack - Mobile Convergence (한글)](http://mobicon.tistory.com/category/AngularJS/Start%20MEAN%20Stack) - 필수
 
@@ -123,6 +124,17 @@ Node.js는 자바스크립트로 서버를 만들수 있는 프레임워크 이�
 
 잘 정리되어 있는 기초 Tutorial, 직접 따라서 코딩해 본다.
 
+=======
+
+* [AngularJS/Start MEAN Stack - Mobile Convergence (한글)](http://mobicon.tistory.com/category/AngularJS/Start%20MEAN%20Stack) - 필수
+
+서버 REST API를 개발하는 예제로 직접 코딩해서 따라해 본다.
+
+* [[Node.js] Node.js, Express, MongoDB를 이용하여 REST API 만들기 - Mobile Convergence (한글)](http://mobicon.tistory.com/197) - 필수
+
+잘 정리되어 있는 기초 Tutorial, 직접 따라서 코딩해 본다.
+
+>>>>>>> 499252f87e9c7d8ac893261d421d7f1994ee2522
 * [Learn to Build Modern Web Apps with MEAN - Thinkster(영문)](https://thinkster.io/mean-stack-tutorial) - 필수
  
 ####3.2. [Angular.js](https://angularjs.org/) 
@@ -140,6 +152,7 @@ Node.js는 자바스크립트로 서버를 만들수 있는 프레임워크 이�
 * [AngularJS: Developer Guide: Controllers(영문)](https://docs.angularjs.org/guide/controller)
 
 개발 시에 API Reference를 찾아가면서 개발한다. 
+<<<<<<< HEAD
 
 * [AngularJS: API: API Reference(영문)](https://docs.angularjs.org/api)
 
@@ -172,6 +185,40 @@ Express.js 홈페이지에서 상단의 메뉴에서 Getting Started, Guide 메�
 
 Mongodb는 깊이 공부해야 될 내용이 많으므로, 처음에는 가볍게 보고 추후에 깊이 공부하도록 한다.
 
+=======
+
+* [AngularJS: API: API Reference(영문)](https://docs.angularjs.org/api)
+
+AngularJS 개발환경과 관련하여 하래 문서를 참고한다.
+
+* [AngularJS 개발환경 자동 구성하기](http://mobicon.tistory.com/274#recentTrackback) - 필수
+
+####3.3. [Node.js](https://nodejs.org/en/)
+
+초심자 가이드를 통하여 개념을 잡도록 한다. 
+
+* [The Node Beginner Book (한글)](http://www.nodebeginner.org/index-kr.html) - 필수
+* [Felix's node.js Beginners Guide(한글)](http://pismute.github.io/nodeguide.com/beginner.html) - 필수
+
+아래 온라인책은 상세한 Node.js 학습서로 가볍게 읽어보고 추후에 필요한 부분을 찾아볼 수 있도록 한다.
+
+* [Professional Node.js(영문)](http://htchttp.s3.amazonaws.com/books/professional_node.js.pdf)
+
+Node.js는 전반적인 개념을 이해하는 것이 중요하며, 웹 개발인 경우 Node.js위에서 동작하는 Express.js API를 주로 사용하므로, 처음에 Node.js가 잘 이해 안가더라도 Express.js 부분을 상세히 보도록 한다. 
+
+####3.4. [Express.js](http://expressjs.com/)
+
+Express.js 홈페이지에서 상단의 메뉴에서 Getting Started, Guide 메뉴에 있는 내용을 본다. - 필수
+
+개발 시에 API Reference를 찾아가면서 개발한다. 
+
+* [Express 4.x - API Reference](http://expressjs.com/en/4x/api.html)
+
+####3.5. [MongoDB](https://www.mongodb.com/)
+
+Mongodb는 깊이 공부해야 될 내용이 많으므로, 처음에는 가볍게 보고 추후에 깊이 공부하도록 한다.
+
+>>>>>>> 499252f87e9c7d8ac893261d421d7f1994ee2522
 * [The MongoDB 3.2 Manual — MongoDB Manual 3.2](https://docs.mongodb.com/manual/)
 
 Mongoose는 node.js 서 mongodb를 사용할 수 있는 library로 필수적으로 사용하므로 아래 문서를 읽고 숙지한다.
