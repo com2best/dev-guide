@@ -166,7 +166,13 @@ Node.js는 전반적인 개념을 이해하는 것이 중요하며, 웹 개발�
 
 ####3.4. [Express.js](http://expressjs.com/)
 
-Express.js 홈페이지에서 상단의 메뉴에서 Getting Started, Guide 메뉴에 있는 내용을 본다. - 필수
+Express.js 홈페이지에서 상단의 메뉴에서 Getting Started로 기본 개념을 익힌다. 목차가 나온 페이지가 없어서 상단 메뉴에서 Getting Started 안에 있는 내용을 선택해서 하나씩 읽어야 한다. 
+
+* [Getting Started](http://expressjs.com/en/starter/installing.html) - 필수
+ 
+Guide를 통해 조금 더 상세한 내용을 익힌다. 목차가 나온 페이지가 없어서 상단 메뉴에서 Guide 안에 있는 내용을 선택해서 하나씩 읽어야 한다. 
+
+* [Guide](http://expressjs.com/en/guide/routing.html)
 
 개발 시에 API Reference를 찾아가면서 개발한다. 
 
@@ -184,7 +190,12 @@ Mongoose는 node.js 서 mongodb를 사용할 수 있는 library로 필수적으�
  
 ####3.5. [Bootstrap](http://getbootstrap.com/)
 
-Bootstrap은 현시점에서 가장 인기있는 반응형 웹 및 모바일 디자인을 위한 UI Framework이다. 개발자도 쉽게 멋진 디자인을 할 수 있는 버튼, Input Form 등 다양한 UI Compnent들을 제공한다. 홈페이지의 Getting Started, CSS, Components, Javascript 메뉴에 있는 내용을 읽고 숙지 한다.
+Bootstrap은 현시점에서 가장 인기있는 반응형 웹 및 모바일 디자인을 위한 UI Framework이다. 개발자도 쉽게 멋진 디자인을 할 수 있는 버튼, Input Form 등 다양한 UI Compnent들을 제공한다. 홈페이지에서 아래 내용을 읽고 숙지 한다.
+
+* [Getting started · Bootstrap](http://getbootstrap.com/getting-started/) - 필수
+* [CSS · Bootstrap](http://getbootstrap.com/css/) - 필수
+* [Components · Bootstrap](http://getbootstrap.com/components/) - 필수
+* [JavaScript · Bootstrap](http://getbootstrap.com/javascript/) - 필수
 
 Bootstrap을 사용한 디자인을 웹에서 직접 코딩해보고 바로 Preview할 수 있는 기능을 제공한다. 또한 Template에 보면 기본 페이지등과 메뉴 디자인 템플릿을 제공한다.
 
