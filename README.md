@@ -104,6 +104,10 @@ Node.js는 자바스크립트로 서버를 만들수 있는 프레임워크 이�
 
 * [Installing Node.js via package manager | Node.js](https://nodejs.org/en/download/package-manager/#osx)
 
+NodeJS가 잘 설치 되었으면, 파일이 변경될 때 마다 node를 다시 시작해 주는 nodemon도 설치해 둔다. 
+
+    npm install -g nodemon
+
 
 ###3. MEAN Stack
 
@@ -270,7 +274,7 @@ WebStorm 메뉴에서 VCS >  Checkout from Version Control 을 실행하고 아�
 
 ![git clone](https://raw.githubusercontent.com/com2best/dev-guide/master/images/meanjs-download.png)
 
-Run > Edit Configuration에서 다음과 같이 설정한다.
+Run > Edit Configuration에서 +로 추가를 선택하여 다음과 같이 설정한다.
 
 ![Node.JS Debug](https://raw.githubusercontent.com/com2best/dev-guide/master/images/edit-config-1.png)
 
@@ -314,6 +318,10 @@ Break Point 위치는 MeanJS 버젼에 따라 달라질 수 있고 상황에 따
 아직 파일이름들은 article로 되어 있으므로, 파일명을 모두 바꾸어 주어야 하는데 터미널에서 moduels > tests 내부로 이동한 후, 아래와 같이 입력 실행한다. 아래 내용은 article이 들어 있는 파일명을 test로 바꾸어 준다. 이 명령은 현재 폴더 아래이 파일명에 article이 들어있는 것을 모두 변경하므로, 반드시 tests 폴더 아래로 이동하여 실행해야 한다.
 
     $ find . -name '*article*' | while read f; do mv "$f" "${f//article/test}"; done;
+
+여기까지 되었으면 브라우져에서 다음 주소로 접속 하여 오류 없이 실행되는지 확인해 본다.
+
+    http://localhost:300/tests
 
 이제 tests에서 구현하고 싶은 기능을 변경하여 구현하면 된다. 일단 Model을 바꾸고, 그 Model에 맞게 Controller를 바꾸어 주는 것이 기본 절차 이다. 
 
