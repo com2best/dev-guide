@@ -297,4 +297,11 @@ Break Point 위치는 MeanJS 버젼에 따라 달라질 수 있고 상황에 따
 
 ###5. Mobile App 개발
 
+###6. 배포하기
+
+####6.1. Heroku
+
+####6.2. Linux 서버 직접 배포
+
+
 
