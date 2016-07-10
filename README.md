@@ -308,7 +308,7 @@ MEAN.js 는 MongoDB, ExpressJS, AngularJS, NodeJS를 사용한 MEAN Stack을 모
 
 AngularJS Extension도 설치해 두고 사용법을 알아두면 좋다.
 
-[AngularJS Batarang - Chrome Web Store](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
+* [AngularJS Batarang - Chrome Web Store](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
 
 ####5.2. WebStorm 개발환경
 
