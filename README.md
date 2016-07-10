@@ -306,8 +306,6 @@ MEAN.js 는 MongoDB, ExpressJS, AngularJS, NodeJS를 사용한 MEAN Stack을 모
 * [Console - 생활코딩](https://opentutorials.org/course/580/2872)
 * [리모트 디버깅 - 생활코딩](https://opentutorials.org/course/580/4152)
 
-유의할 점은 WebStorm 디버깅 모드에서 Chrome 개발도구를 열면 디버깅 모드가 꺼지는 현상이 있다. 디버깅 실행할 때 열린 Chrome Tab말고 새로운 Tab을 추가하여 같은 주소로 접속한 후 개발도구를 열면 Chrome 디버깅을 사용할 수 있고, 디버깅이 되는 본래 Tab에서는 WebStorm 디버깅 기능을 사용할 수 있다.
-
 AngularJS Extension도 설치해 두고 사용법을 알아두면 좋다.
 
 [AngularJS Batarang - Chrome Web Store](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk)
@@ -343,7 +341,9 @@ Run > Edit Configuration에서 +로 추가를 선택하여 다음과 같이 설�
 
 위와 같이 설정하고 Debug [Command+D]를 실행해서 브라우저가 뜨면서 예제 화면이 나오는 지 확인한다.
 
-아래와 같이 modules > articles > server > controllers > articles.server.controller.js 84번째 줄에 Break Point를 설정한다. Break Point 설정 방법은 해당 줄에서 [Command+F8]을 누르거나, 동그라미 위치를 더블클릭 하면 된다. 
+유의할 점은 WebStorm 디버깅 모드에서 Chrome 개발도구를 열면 디버깅 모드가 꺼지는 현상이 있다. 디버깅 실행할 때 열린 Chrome Tab말고 새로운 Tab을 추가하여 같은 주소로 접속한 후 개발도구를 열면 Chrome 디버깅을 사용할 수 있고, 디버깅이 되는 본래 Tab에서는 WebStorm 디버깅 기능을 사용할 수 있다.
+
+다음은 Break Point 가 동작하는 지 확인해 본다. 아래와 같이 modules > articles > server > controllers > articles.server.controller.js 84번째 줄에 Break Point를 설정한다. Break Point 설정 방법은 해당 줄에서 [Command+F8]을 누르거나, 동그라미 위치를 더블클릭 하면 된다. 
 
 ![debug1](https://raw.githubusercontent.com/com2best/dev-guide/master/images/debug1.png)
 
