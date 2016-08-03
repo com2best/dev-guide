@@ -2,8 +2,22 @@
 
     cd bot-web //bot-web폴더로 이동
     git pull
+    npm install
     node server.js
 
+아래와 같은 경고 메세지가 나오면 
+node-java mac "no java runtime present"
+
+이글을 참고하여 아래와 같이 처리한다. 
+https://github.com/joeferner/node-java/issues/90#issuecomment-45613235
+
+    sudo vi /Library/Java/JavaVirtualMachines/jdk1.8.0_72.jdk/Contents/Info.plist
+    <key>JVMCapabilities</key>
+     <array>
+       <string>CommandLine</string>
+       <string>JNI\</string>
+     </array>
+                
 기존 머니봇 계좌조회는 빼놓았으므로, 서버에 올리지는 말고 로컬 PC에서만 개발 해봐해야 합니다.
 
 ####1. 자연어처리
