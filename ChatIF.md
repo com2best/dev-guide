@@ -235,22 +235,22 @@ module: http, action: xpathRepeat인 것을 확인한다. url과 path는 위 브
 
     var templates = {
       "movies": {
-      "module": "http",
-      "action": "xpathRepeat",
-      "url": "http://movie.naver.com",
-      "path": "/movie/running/current.nhn?view=list&tab=normal&order=reserve",
-      "save": "true",
-      "xpath": {
-        "repeat": "//ul[@class='lst_detail_t1']/li",
-        "limit": "5",
-        "doc": {
-          "title": "//dt[@class='tit']/a/text()",
-          "path": "//dt[@class='tit']/a/@href",
-          "director": "//dl[@class='info_txt1']/dd[2]//a/text()",
-          "actors": "//dl[@class='info_txt1']/dd[3]//a/text()"
+        "module": "http",
+        "action": "xpathRepeat",
+        "url": "http://movie.naver.com",
+        "path": "/movie/running/current.nhn?view=list&tab=normal&order=reserve",
+        "save": "true",
+        "xpath": {
+          "repeat": "//ul[@class='lst_detail_t1']/li",
+          "limit": "5",
+          "doc": {
+            "title": "//dt[@class='tit']/a/text()",
+            "path": "//dt[@class='tit']/a/@href",
+            "director": "//dl[@class='info_txt1']/dd[2]//a/text()",
+            "actors": "//dl[@class='info_txt1']/dd[3]//a/text()"
+          }
         }
-      }
-    },
+      },
 
 위와 같이 정의하는 것을 템플릿 함수라고 한다. 
 
