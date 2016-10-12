@@ -162,48 +162,37 @@ Dialog 의 기본 구조는 다음과 같다.
 	
 ###3. Task
 
-####3.1. Task의 정의
+머니브레인의 봇은 사용자의 질문에 대한 정해진 답변만을 출력하는 것에 머물지 않는다. 사용자의 질문, 요청 등 입력에 대해 Task(업무)를 수행하고, 이를 답변으로 출력하는 것을 목표로 한다. 
 
-머니브레인의 봇은 사용자의 질문에 대한 정해진 답변만을 출력하는 것에 머물지 않는다. 사용자의 질문, 요청 등 입력에 대해 Task(업무)를 수행하고, 이를 답변으로 출력하는 것을 중심으로 구현하고자 한다. 
+이때 사용자의 요청에 대한 수행할 업무를 정의한 것을 Task 라고 한다. Task의 구현은 Javascript 언어로 구현하며, Task를 비롯한 자료들은 JSON 형태로 정의한다.  
 
-이때 사용자의 요청에 대한 수행할 업무의 구현을 Task라고 정의 한다. 
+####3.1. Task 정의
 
-      입력
-       |
-    Task처리
-       |
-      출력  
-
-####3.1. Task가 있는 Dialog
-
-sample.dlg에서 아래와 같이 정의 한다.  sampleTasks는 모듈명. helloworldTask는 처리할 Task를 의미한다. 
+sample.dlg에서 아래와 같이 정의 한다.  
 
 	< Task 실행
-	sampleTasks.helloworldTask
-	> +result+ task에서 처리한 내용 표시
+	sampleTask
+	> Task 처리 결과: +result+
 
-위에서 참조한 task는 sample.task.js 에 아래와 같이 정의한다. 
+sample.js 에 아래와 같이 정의한다. 
 ```
-var helloworldTask =
+var sampleTask =
 {
-  name: 'helloworld',
   action: function (task, context, callback) {
     task.result = 'hello world';
     callback(task, context);
   }
 };
 ```
+위와 같이 하면, 아래와 같이 입력 출력이 이루어 진다.
 
-확장자가 dlg인 정의된 Dialog 파일은 javascript 와 형식이 다르므로, dlg에서 사용한 모듈의 정의는 별도로 추가해야 한다.
-  위의 sample.dlg에서 sampleTasks 모듈을 사용하기 때문에 아래와 같이 require 부분이 필요하다. sample.include.js는 sample.dlg 파일을 위한 javascript 추가파일이다. 앞부분의 이름을 맞추어 정의한다. 
+입력> Task 실행해줘
+Task> helloworldTask의 action 함수를 실행하여 result 값에 "hello world"  저장
+출력> Task 처리 결과:  hello world
 
-	var path = require('path');
-	var sampleTasks = require(path.resolve('custom_modules/sample/sample.task'));
+####3.2. Action 함수 정의
 
-
-
-####3.2. Task Action 함수 만들기
-기본적인 Task Action 함수를 작성하는 방법이다. 
+Action 함수는 Task 내에서 실제 구현이 들어가 있는 함수로 다음과 같이 정의한다. 
 
 ```javascript	
 function actionName(task, context, callback) {	
@@ -212,8 +201,46 @@ function actionName(task, context, callback) {
 }
 ```
 
-task 파라미터는 JSON 객체로 action에서 처리할 parameter 정보를 받고, 처리한 결과를 보내는 데 사용된다. 
+Action 함수는 세가지 파라메터 변수를 받으며, 그 정의는 다음과 같다.
 
+첫번째, 파라미터 변수인 task는 action 함수에서 업무 처리에 필요한 정보를 JSON 형태로 받고, 처리한 결과를 담아서 return 하는 데 사용된다. 내부적으로는 action이 정의된 task와 같은 JSON 객체이다.
+
+두번째, 파라미터 변수인 context는 문맥, 상황을 위한 변수이다. 스마트한 봇을 구현하기 위해 대화의 문맥, 사용자의 정보 들을 context에 담아서 JSON 형태로 전달한다.   
+
+세번째, 파라미터 변수인 callback은 결과를 return 하는 역활을 한다. Action 함수는 비동기(Async) 방식으로 구현한다. 그러므로 업무 처리가 끝나면 반드시 callback을 호출하여야 한다. 
+
+Action 함수를 세가지 파라미터 변수로 표준화 함으로써 어떠한 업무를 처리하는 Action 함수도 동일한 구조로 구현할 수 있게 한다. 다양한 업무처리에 필요한 변수가 달라질 수도 있는 점은 task와 context 변수를 JSON 으로 정의해서 필요한 정보를 JSON에 담아서 보내는 방식으로 처리한다.
+
+Action 함수는 Task 정의 내에서 inline function 으로 정의하거나, 별도로 정의하고 참조 할 수 있다. Javascript 에서 JSON과 함수를 참조하는 것과 동일하다.
+
+1. Task의 action 항목에 함수를 inline으로 정의하는 경우
+```javascript
+var sampleTask =
+{
+  name: 'sample',
+  action: function (task, context, callback) {
+    task.result = 'hello world';
+    callback(task, context);
+  }
+};
+```
+
+2. 함수를 따로 정의하고 task 의 action 항목에 참조하는 경우
+```javascript
+var sampleTask =
+{
+  name: 'sample',
+  action: sampleAction
+};
+
+function sampleAction(task, context, callback) {
+  task.result = 'hello world';
+  callback(task, context);
+}
+```
+
+
+####3.3. Task 파라미터 변수
 ```
 var task1 = 
 {
@@ -242,7 +269,7 @@ function testAction(task, context, callback) {
 // Task 처리후 callback을 호출한다. 
 exports.actionName = actionName;		// 다른 모듈에서 사용할 수 있게 exports 해주는 것이 좋다.
 
-####3.2. Context 의 활용
+####3.4. Context 파라미터 변수
 
 context	는 해당 task에 제한되지 않은 여러정보들을 담고 있다. 이를 통해 현재 사용자의 입력에 해당 되는 정보 뿐만아니라, 사용자 정보 등 다양한 상황에 따른 처리를 할 수 있다. 
 
