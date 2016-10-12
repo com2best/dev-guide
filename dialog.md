@@ -3,15 +3,6 @@
 
 ###1. Quick Start
 
-    < 나이가 어떻게 돼?
-    > 19살 입니다.
-
-	< 주문해줘
-	{
-		action: 주문Task
-	}
-	> 주문이 완료 되었습니다. 
-
 ###2. Dialog
 
 ####2.1. Dialog 기본
@@ -171,29 +162,99 @@ Dialog 의 기본 구조는 다음과 같다.
 	
 ###3. Task
 
-####3.1. Task가 있는 Dialog
-질문답변에 task 추가
+####3.1. Task의 정의
 
+머니브레인의 봇은 사용자의 질문에 대한 정해진 답변만을 출력하는 것에 머물지 않는다. 사용자의 질문, 요청 등 입력에 대해 Task(업무)를 수행하고, 이를 답변으로 출력하는 것을 중심으로 구현하고자 한다. 
+
+이때 사용자의 요청에 대한 수행할 업무의 구현을 Task라고 정의 한다. 
+
+      입력
+       |
+    Task처리
+       |
+      출력  
+
+####3.1. Task가 있는 Dialog
+
+sample.dlg에서 아래와 같이 정의 한다.  sampleTasks는 모듈명. helloworldTask는 처리할 Task를 의미한다. 
+
+	< Task 실행
+	sampleTasks.helloworldTask
+	> +result+ task에서 처리한 내용 표시
+
+위에서 참조한 task는 sample.task.js 에 아래와 같이 정의한다. 
+```
+var helloworldTask =
 {
-	name: 'task명',
-	action: action 함수 참조,
-}
-	
-####3.2. Task 만들기
-기본적인 Task를 작성하는 방법이다. 
+  name: 'helloworld',
+  action: function (task, context, callback) {
+    task.result = 'hello world';
+    callback(task, context);
+  }
+};
+```
+
+확장자가 dlg인 정의된 Dialog 파일은 javascript 와 형식이 다르므로, dlg에서 사용한 모듈의 정의는 별도로 추가해야 한다.
+  위의 sample.dlg에서 sampleTasks 모듈을 사용하기 때문에 아래와 같이 require 부분이 필요하다. sample.include.js는 sample.dlg 파일을 위한 javascript 추가파일이다. 앞부분의 이름을 맞추어 정의한다. 
+
+	var path = require('path');
+	var sampleTasks = require(path.resolve('custom_modules/sample/sample.task'));
+
+
+
+####3.2. Task Action 함수 만들기
+기본적인 Task Action 함수를 작성하는 방법이다. 
 
 ```javascript	
 function actionName(task, context, callback) {	
 	// 여기에 Task에 처리할 내용을 구현한다. 
-	
 	callback(task, context);			
 }
-
-exports.actionName = actionName;		// 다른 모듈에서 사용할 수 있게 exports 해주는 것이 좋다.
 ```
+
+task 파라미터는 JSON 객체로 action에서 처리할 parameter 정보를 받고, 처리한 결과를 보내는 데 사용된다. 
+
+```
+var task1 = 
+{
+	param1: '111',
+	param2: '222',
+	action: testAction,
+}
+```
+
+위와 같이 task를 정의하고, 아래와 같이 testAction을 정의한다. 
+
+```
+function testAction(task, context, callback) {
+	task.result1 = task.param1 + '이 결과 입니다';
+	task.result2 = [task.param1, task.param2];
+	
+	callback(task, context);
+}
+```
+
+위와 같이 task에 result 값을 설정하여 결과 값으로 보낼 수 있다. task는 기본적으로 JSON 구조이므로 action 개발자가 어떤 형태로 데이터를 내보낼 지는 자유롭게 정할 수 있다. 
+
+위와 같이 하면 
 
 //actionName은 함수 이름으로Task에 맞게 적절히 바꾼다.
 // Task 처리후 callback을 호출한다. 
+exports.actionName = actionName;		// 다른 모듈에서 사용할 수 있게 exports 해주는 것이 좋다.
+
+####3.2. Context 의 활용
+
+context	는 해당 task에 제한되지 않은 여러정보들을 담고 있다. 이를 통해 현재 사용자의 입력에 해당 되는 정보 뿐만아니라, 사용자 정보 등 다양한 상황에 따른 처리를 할 수 있다. 
+
+현재 정의된 상황별 context는 다음과 같다.
+
+* context.global: 
+* context.user: 사용자의 정보를 담고 있다. 
+* context.bot: 현재 봇의 정보를 담고 있다. 
+* context.botUser: 현재 봇을 사용하는 사용자의 정보를 담고 있다. 
+* context.dialog: Dialog가 여러단계로 이루어지는 경우 대화의 문맥을 파악하기 위해 사용 한다. 
+	
+머니브레인 봇의 모든 데이터는 JSON을 기반으로 하므로, bot 개발시 필요한 경우 각 context 수준에 맞게 추가적인 key를 정의하여 사용할 수 있다. 
 
 ####3.3. Common Task 사용하기
 
