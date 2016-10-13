@@ -186,9 +186,9 @@ var sampleTask =
 ```
 위와 같이 하면, 아래와 같이 입력 출력이 이루어 진다.
 
-입력> Task 실행해줘
-Task> helloworldTask의 action 함수를 실행하여 result 값에 "hello world"  저장
-출력> Task 처리 결과:  hello world
+	입력> Task 실행해줘.
+	Task> helloworldTask의 action 함수를 실행하여 result 값에 "hello world"  저장.
+	출력> Task 처리 결과:  hello world.
 
 ####3.2. Action 함수 정의
 
@@ -211,33 +211,6 @@ Action 함수는 세가지 파라메터 변수를 받으며, 그 정의는 다�
 
 Action 함수를 세가지 파라미터 변수로 표준화 함으로써 어떠한 업무를 처리하는 Action 함수도 동일한 구조로 구현할 수 있게 한다. 다양한 업무처리에 필요한 변수가 달라질 수도 있는 점은 task와 context 변수를 JSON 으로 정의해서 필요한 정보를 JSON에 담아서 보내는 방식으로 처리한다.
 
-Action 함수는 Task 정의 내에서 inline function 으로 정의하거나, 별도로 정의하고 참조 할 수 있다. Javascript 에서 JSON과 함수를 참조하는 것과 동일하다.
-
-* Task의 action 항목에 함수를 inline으로 정의하는 경우
-```javascript
-var sampleTask =
-{
-  name: 'sample',
-  action: function (task, context, callback) {
-    task.result = 'hello world';
-    callback(task, context);
-  }
-};
-```
-
-* 함수를 따로 정의하고 task 의 action 항목에 참조하는 경우
-```javascript
-var sampleTask =
-{
-  name: 'sample',
-  action: sampleAction
-};
-
-function sampleAction(task, context, callback) {
-  task.result = 'hello world';
-  callback(task, context);
-}
-```
 
 
 ####3.3. Task 파라미터 변수
@@ -332,8 +305,103 @@ context	는 해당 task에 제한되지 않은 여러정보들을 담고 있다.
 	
 머니브레인 봇의 모든 데이터는 JSON을 기반으로 하므로, bot 개발시 필요한 경우 각 context 수준에 맞게 추가적인 key를 정의하여 사용할 수 있다. 
 
-####3.5. Task 결과 처리
 
+####3.6. Task와 출력
+
+task에 있는 값은 출력에 변수로서 값을 표시할 수 있다. +변수명+ 를 통해서 값을 표시할 수 있다. 
+
+아래와 같이 task.title 에 값이 설정되어 있고, 출력부 +title+ 이 있으면 +title+부분이 task.title로 변경되어 표시 된다. 
+
+	task.title = '머니브레인';
+	
+	> +title+ 표시합니다. 
+	
+	출력> 머니브레인 표시합니다. 
+
+task 는 JSON 형태로 되어 있으므로, 하위 개체에 있는 것도 JSON 개체를 참조하는 방식으로 사용할 수 있다. 
+
+	task.item = {};
+	task.item.name = '홍길동';
+
+	> +item.name+ 표시합니다. 
+	
+	출력> 홍길동 표시합니다. 
+
+
+task에 array값로 정의하고 리스트로 표시할 수 있다.  반복표시할 내용은 #을 사용하여 # task변수값 # 반복표시할내용 # 형식으로 사용할 수 있다. 아래 반복 표시할 변수이름이 doc이면 생략하여 ## 반복표시할 내용 # 와 같이 사용할 수 있다. 
+
+	task.doc = [
+		{company: '머니브레인', name: '홍길동'},
+		{company: '구글', name: 'Sundar'}
+	]
+
+	> #doc#+index+.+company+ +name+\n# 감사합니다. 
+	
+	출력> 1.머니브레인 홍길동 
+	     2.구글 Sundar
+         감사합니다.
+         
+####3.5. Task 결과 후처리
+
+Action 함수에서 처리한 결과를 xpaht 와 reg exp로 간편하게 추출하여 사용할 수 있다. 
+
+결과값을 http 등으로 받는 html 데이터를 xpath 를 사용하여 저장할 수 있다. 
+
+아래의 예시와 같이 하면 html 값에서 <title></title> 사이의 값을 xapth로 읽어서 task.title 에 저장한다. _text: 'body' 로설정한 것은 task.body 에 있는 값을 사용해서 xpath 검색을 한다는 의미로 http 요청으로 받은 데이터가 task.body 에 저장되어 있기 때문이다. 
+
+	var xpathTask = {
+		url: 'https://www.google.co.kr/search?q=moneybrain.ai',
+		action: httpAction,
+		xpath: {
+		    _text: 'body',
+			title: '//title/text()'
+		}
+	}
+
+아래와 같이 하면 html 값에서 검색리스트를 task.doc 에 array 형태로 저장한다.  doc 하부에 _repeat에 있는 xpath로 목록을 가져와서 list와 link 값으로 array를 구성한다. doc 과 다른 이름으로 추가 xpath를 지정하여 여러게의 list 을 담을 수 있다. 
+
+	var xpathListTask = {
+		url: 'https://www.google.co.kr/search?q=moneybrain.ai',
+		action: httpAction,
+		xpath: {
+		    _text: 'body'
+			title: '//title/text()',
+	        doc: {
+		      _repeat: '//div[@class="srg"]/div[@class="g"]',
+	          list: '//a/text()',
+	          link: '//a/@href',
+	        }			
+		}
+	}
+
+
+정규식(Regular Expression)을 이용하여 결과값을 task 에 저장할 수 있다. 아래 예시에서는 정규식을 사용하여 html에서 title 값을 task.title 에 저장한다. 
+
+	var xpathTask = {
+		url: 'https://www.google.com',
+		action: httpAction,
+		regexp: {
+		    _text: 'body',
+			title: /<title>(.*)<\/title>/
+		}
+	}
+
+
+아래와 같이 하면 검색 리스트 텍스트에서 reg exp로 match하여 task.doc을 array 형태로 저장한다. _repeat에 있는 정규식 g flag 로 검색하여 여러개의 매치를 찾고, ( ) 를 사용하여 변수에 저장한다. link 와 list의 숫자는 매치 저장에서 저장되는 순서이며 1번부터 시작한다. 
+
+	var xpathTask = {
+		url: 'https://www.google.com',
+		action: httpAction,
+		regexp: {
+		    _text: 'body',
+			title: /<title>(.*)<\/title>/
+			doc: {
+				_repeat: /<h class="r"><a.*href="(.*)".*>(.*)<\/a></h>/g
+				link: 1,
+				list: 2
+			}
+		}
+	}
 
 ####3.5. PreCallback,  PostCallback
 
@@ -456,6 +524,126 @@ var sequenceTask = {
 	]
 }
 ```
+
+####3.4. Task 및 Action 함수 호출과 참조
+
+#####3.4.1. Task 참조
+
+* Dialog의 task 영역에 inline으로 Task를 정의하는 경우
+
+아래와 같이 task를 dialog 입력과  출력사이에 바로 정의하여 사용할 수 있다. 
+
+```
+// sample.dlg
+< Task 실행
+{
+  action: function (task, context, callback) {
+    task.result = 'hello world';
+    callback(task, context);
+  }
+}
+> Task 처리 결과: +result+
+```
+
+* Task를 따로 정의하고 dialog 의 task 항목에 참조하는 경우
+같은 이름의 dlg 파일과 js 파일은 같은 dlg build 과정을 통해 합쳐지므로, 같은 namespace에 존재한다. 
+
+```
+// sample.dlg
+< Task 실행
+sampleTask
+> Task 처리 결과: +result+
+
+// sample.js
+var sampleTask =
+{
+  action: function (task, context, callback) {
+    task.result = 'hello world';
+    callback(task, context);
+  }
+};
+```
+
+* 다른 곳에 정의한 Action 함수를 사용하는 경우
+다른 곳에 정의된  Task를 사용하려면 아래와 같이 String 형식의 Task 이름을 넣는다.
+
+아래 예시처럼 sample.dlg 와 이름이 다른 other.js에 정의된 Task를 사용하려면 String 으로 'sampleTask' 를  넣는다. 다른 곳에서 사용하려면 Task를 등록하는 과정을 거쳐야 한다. 제일 하단의 bot.setTask 을 통하여 등록한다. setTask 통해 등록하는 Task명은 다른 Task와 중복되면 안된다. 
+
+```
+// sample.dlg
+< Task 실행
+'sampleTask'
+> Task 처리 결과: +result+
+
+// other.js
+var sampleTask =
+{
+  action: function (task, context, callback) {
+    task.result = 'hello world';
+    callback(task, context);
+  }
+};
+
+bot.setTask('sampleTask', sampleTask);
+```
+
+
+#####3.4.2. Action 함수 참조
+
+Action 함수는 Task 정의 내에서 inline function 으로 정의하거나, 별도로 정의하고 참조 할 수 있다. Javascript 에서 JSON과 함수를 참조하는 것과 동일하다.
+
+* Task의 action 항목에 함수를 inline으로 정의하는 경우
+```
+var sampleTask =
+{
+  name: 'sample',
+  action: function (task, context, callback) {
+    task.result = 'hello world';
+    callback(task, context);
+  }
+};
+```
+
+* 함수를 따로 정의하고 task 의 action 항목에 참조하는 경우
+
+같은 이름의 dlg 파일과 js 파일은 같은 namespace에 존재하므로 직접 참조가 가능하다. 
+
+```javascript
+var sampleTask =
+{
+  name: 'sample',
+  action: sampleAction
+};
+
+function sampleAction(task, context, callback) {
+  task.result = 'hello world';
+  callback(task, context);
+}
+```
+
+* 다른 곳에 정의한 Action 함수를 사용하는 경우
+
+dlg와 같은이름의 js 파일이 아닌 다른 곳에 정의된  action 함수를 사용하려면 아래와 같이 String 형식의 action 이름을 넣는다.
+
+아래 예시처럼 sample.dlg 와 이름이 다른 other.js에 정의된 action 함수를 사용하려면 String 으로 'sampleAction' 를  넣는다. 다른 곳에서 사용하려면 Action 함수를 등록하는 과정을 거쳐야 한다. 제일 하단의 bot.setAction 을 통하여 등록한다. setAction 통해 등록하는 action명은 다른 action 과 중복되면 안된다. 
+
+```
+// sample.dlg
+var sampleTask =
+{
+  name: 'sample',
+  action: 'sampleAction'
+};
+
+// other.js
+function sampleAction(task, context, callback) {
+  task.result = 'hello world';
+  callback(task, context);
+}
+
+bot.setAction('sampleAction', sampleAction);
+```
+
 
 ####3.3. Common Task 사용하기
 
