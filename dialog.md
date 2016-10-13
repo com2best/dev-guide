@@ -407,7 +407,7 @@ Action 함수에서 처리한 결과를 xpaht 와 reg exp로 간편하게 추출
 
 아래와 같이 task에 preCallback, postCallback 함수를 구현하여 action 함수를 호출하기 전, 후에 처리할 작업을 추가할 수 있다.
 
-```javascript
+```
 var sampleTask =
 {
   name: 'sample',
@@ -525,6 +525,72 @@ var sequenceTask = {
 }
 ```
 
+이러한 task 구조 상에서 다른 상하 task를 참조할 수 있다. 
+
+* task.topTask:  최상위 Task
+* task.parentTask: 상위 Task
+* task.preTask: 이전 Task
+
+####3.4. Task 간 데이터 전달
+
+Task의 연결관계, 상하구조에서 데이터를 전달하기 위해서 기본적으로 preCallback, postCallback을 사용할 수 있다.
+
+아래 예시에서는 preCallback을 통해 sequence 등의 이전 task에서 query 값을 가져와서 task.param으로 사용한다. postCallback을 통해서는 task에서 처리한 result.query 값을 topTask에 저장해 놓는다. 
+
+	var sampleTask =
+	{
+	  name: 'sample',
+	  preCallback: function(task, context, callback) {
+		  task.param.query = task.preTask.result.query;
+		  callback(task, context);
+	  },
+	  action: sampleAction,
+	  postCallback: function(task, context, callback) {
+		  task.topTask.param.query = task.result.query;
+		  callback(task, context);
+	  }
+	};
+
+아래와 같이 task 속성을 통해 데이터를 전달할 수도 있다.
+
+	var sampleTask = {
+	  name: 'sample',
+	  data: {
+		set: 'replace',
+		context: {
+		  user: ['result.doc']
+		}, 
+		task: {
+		  topTask: ['result.title'], 
+		  parent: ['param.title']
+		}
+	  },
+	  action: sampleAction
+	};
+
+	var sampleTask = {
+	  name: 'sample',
+	  data: {
+		get: 'merge',		
+  	    context: ['bot.botName', 'user.mobile'], 
+	    task: ['topTask.name', parent.result.doc']
+	  },
+	  action: sampleAction
+	};
+
+
+data 속성 안내 두가지 key 값으로 구분을 한다 
+
+* get: context 나 다른 task에서 값을 가져와 현재 task에 저장한다. 
+* set: 현재 task의 결과를 context 나 다른 task에 저장한다. 
+
+데이터를 전달하는데 다음의 옵션들이 있다. 
+
+* replace: 기본 옵션으로 같은 key의 데이터가 있으면 대체한다.
+* merge: 같은 key의 기존 데이터가 있으면 다른 부분만 새로 겹쳐서 합친다.
+* concat: 데이터가 array인 경우 두 array를 합쳐서 저장한다. array concat 함수와 동일
+
+
 ####3.4. Task 및 Action 함수 호출과 참조
 
 #####3.4.1. Task 참조
@@ -587,6 +653,25 @@ var sampleTask =
 bot.setTask('sampleTask', sampleTask);
 ```
 
+기본적으로 task는 nodejs javascript로 구현하므로, node의 require를 통해서 module방식으로 참조할 수도 있다. 
+
+	// sample.dlg
+	< Task 실행
+	other.sampleTask
+	> Task 처리 결과: +result+
+
+	// sample.js
+	var path = require('path');
+	var other = require(path.resolve('custom_modules/sample/other.js'));
+
+	// other.js
+	var sampleTask =
+	{
+	  action: function (task, context, callback) {
+		task.result = 'hello world';
+	    callback(task, context);
+	  }
+	};
 
 #####3.4.2. Action 함수 참조
 
@@ -643,6 +728,28 @@ function sampleAction(task, context, callback) {
 
 bot.setAction('sampleAction', sampleAction);
 ```
+
+####3.4. Template Task 
+
+Template task를 사용해서 기존에 있던 task를 재사용하여 확장할 수 있다. task의 template 항목에 상속받을 template task 참조를 넣는다. 참조의 방법은 일반 task참조와 동일하다.
+
+아래의 예시에서는 googleTask의 url은 그대로 사용하고, moneybrainTask에서 task.param.q 만 변경하여 요청한다.
+
+	var moneybrainTask = {
+	  name: 'moneybrainTask',
+	  template: googleTask,
+	  param: {
+		  q: 'moneybrain.ai'
+	  }
+	};
+
+	var googleTask = {
+		url: 'https://www.google.com',
+		param: {
+			q: ''
+		},
+		action: httpAction,
+	}
 
 
 ####3.3. Common Task 사용하기
