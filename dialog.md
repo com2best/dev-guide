@@ -213,7 +213,7 @@ Action 함수를 세가지 파라미터 변수로 표준화 함으로써 어떠�
 
 Action 함수는 Task 정의 내에서 inline function 으로 정의하거나, 별도로 정의하고 참조 할 수 있다. Javascript 에서 JSON과 함수를 참조하는 것과 동일하다.
 
-1. Task의 action 항목에 함수를 inline으로 정의하는 경우
+* Task의 action 항목에 함수를 inline으로 정의하는 경우
 ```javascript
 var sampleTask =
 {
@@ -225,7 +225,7 @@ var sampleTask =
 };
 ```
 
-2. 함수를 따로 정의하고 task 의 action 항목에 참조하는 경우
+* 함수를 따로 정의하고 task 의 action 항목에 참조하는 경우
 ```javascript
 var sampleTask =
 {
@@ -241,33 +241,82 @@ function sampleAction(task, context, callback) {
 
 
 ####3.3. Task 파라미터 변수
-```
-var task1 = 
-{
-	param1: '111',
-	param2: '222',
-	action: testAction,
+
+자세한 설명 전에 간단한 Action 함수를 예제로 정의해 본다. 아래 함수는 http 요청을 해서 웹에서 데이터를 가지고 온다. task는 node 기반 javascript로 작성할 수 있어 node library를 사용할 수 있다. 에러 예외 처리 등은 되어 있지 않는 예시용 함수 이다. 
+
+```javascript
+function httpAction(task, context, callback) {
+	var request = require('request');
+	request({url: task.url}, function (error, response, body) {
+	  if (!error && response.statusCode == 200) {
+		task.content = body;
+	    callback(task, context);
+	  }
+	})
 }
 ```
+위에서 request 모듈은 node에서 많이 쓰이는 http request 라이브러리로 자세한 내용은 https://github.com/request/request 를 참고한다. 
 
-위와 같이 task를 정의하고, 아래와 같이 testAction을 정의한다. 
+다음으로 Task 파라미터 변수를 설정하는 방법을 알아본다.
 
-```
-function testAction(task, context, callback) {
-	task.result1 = task.param1 + '이 결과 입니다';
-	task.result2 = [task.param1, task.param2];
+첫째, Task 정의할 때 추가하는 방법이다. 미리 정의된 변수라고 생각할 수 있다.
+
+	var googleTask = {
+		url: 'https://www.google.com',
+		action: httpAction,
+	}
+
+
+위와 같이 정의한 googleTask를 실행하면, task.uri 에 있는 google 주소에 접속에 페이지의 HTML을 읽어서 task.content 에 저장한다.
+
+	var naverTask = {
+		url: 'http://www.naver.com',
+		action: httpAction,
+	}
+
+위와 같이 정의한 naverTask를 실행하면, task.uri 에 있는 naver 주소에 접속에 페이지의 HTML을 읽어서 task.content 에 저장한다.
+
+둘째, 사용자의 입력을 받아 task 파라메터 변수로 전달하는 방법이다.
+
+정규식을 사용하면 사용자가 입력한 내용 중에 일부를 변수로 사용할 수 있다. 
+
+	< /구글 (.*) 찾다/
+	googleTask
+	> google 에서 +1+을 검색하였습니다. 
+
+위 구현에서 정규식으로 저장한 1번째 내용이 task.1 에 저장된다.
+
+사용자가 입력한 값을 받아서 Google에서 검색하는 것을 Task로 구현해 보기 위해 googleTask와 httpAction을 아래와 같이 수정한다.
+
+```javascript
+var googleTask = {
+	url: 'https://www.google.co.kr/search?q=',
+	action: googleAction,
+}
+
+function googleAction(task, context, callback) {
+	var request = require('request');
 	
-	callback(task, context);
+	task.url = task.url + task.1;
+	
+	request({uri: task.url}, function (error, response, body) {
+	  if (!error && response.statusCode == 200) {
+		task.content = body;
+	    callback(task, context);
+	  }
+	})
 }
 ```
 
-위와 같이 task에 result 값을 설정하여 결과 값으로 보낼 수 있다. task는 기본적으로 JSON 구조이므로 action 개발자가 어떤 형태로 데이터를 내보낼 지는 자유롭게 정할 수 있다. 
+구글에서 검색하기 위해 url에 /search?q= 를 추가하였다. q= 뒤에 검색어를 넣어서 요청하면 된다. 그리고 googleAction 에서는 task.query 의 값을 q= 뒤에 합칠 수 있도록 구현을 추가 하였다. 
 
-위와 같이 하면 
+Action 함수에서 task.1 값을 검색 쿼리로 입력하여 google 검색을 요청한다. 
 
-//actionName은 함수 이름으로Task에 맞게 적절히 바꾼다.
-// Task 처리후 callback을 호출한다. 
-exports.actionName = actionName;		// 다른 모듈에서 사용할 수 있게 exports 해주는 것이 좋다.
+Type  을 사용하여 매치된 값은 type 이름으로 task에 저장되고 Action함수에서 사용할 수 있다.  예를 들어 아래와 같이 mobileType 에 매치되면 task.mobile 에 휴대폰 번호 형식으로 입력한 값이 저장된다.
+
+	< {types: [type: mobileType]}
+	> 휴대폰 번호는 +mobile+ 입니다. 
+
 
 ####3.4. Context 파라미터 변수
 
@@ -283,9 +332,134 @@ context	는 해당 task에 제한되지 않은 여러정보들을 담고 있다.
 	
 머니브레인 봇의 모든 데이터는 JSON을 기반으로 하므로, bot 개발시 필요한 경우 각 context 수준에 맞게 추가적인 key를 정의하여 사용할 수 있다. 
 
-####3.3. Common Task 사용하기
+####3.5. Task 결과 처리
+
+
+####3.5. PreCallback,  PostCallback
+
+아래와 같이 task에 preCallback, postCallback 함수를 구현하여 action 함수를 호출하기 전, 후에 처리할 작업을 추가할 수 있다.
+
+```javascript
+var sampleTask =
+{
+  name: 'sample',
+  preCallback: function(task, context, callback) {
+      // 여기서 Action 함수를 호출하기 전에 수행할 일을 구현
+	  callback(task, context);
+  },
+  action: sampleAction,
+  postCallback: function(task, context, callback) {
+      // 여기서 Action 함수를 호출한 후에 수행할 일을 구현
+	  callback(task, context);
+  }
+};
+```
+
+####3.4. Action Parameter Definition
+
+Action 함수에서 사용할 parameter 정보를 paramDefs로 정의할 수 있다. Action 함수의 parameter 정보를 정의하는 이유는 Dialog를 통해서 Task 를 사용할 때 어떠한 정보를 넘겨주어야 하는지 파악할 수 있기 때문이다. 필수적인 정보가 입력된 내용에 없을 경우는 봇이 자동으로 사용자에게 질문하여 정보를 얻을 수 있다. 
+
+```javascript
+var sampleTask =
+{
+  name: 'sample',
+  paramDefs: [
+    {name: '휴대폰', type: mobileType, require: false, dialog: '휴대폰Dialog'},
+  ],
+  action: sampleAction,
+};
+```
+
+paramDef 정의에는 다음의 속성들이 사용가능하다
+
+* name: 정의할 파라미터 이름으로 task JSON 개체에 같은 이름으로 저장된다. 
+* require: boolean 형으로 필수 파라미터 여부. 필수 파라미터가 task에 없는 경우 봇이 사용자에게 요청하는 질문을 하여 입력을 받는다. 
+* question: String 형으로 봇이 사용자에게 파라미터를 물어볼 경우 질문 내용
+* dialog: 봇이 사용자에게 파라미터를 물어볼 경우 단순한 질문이 아니라, 몇단계의 dialog 가 있을 수 있는데 이를 정의한다. String 값이면 같은 이름의 dialog를 찾고, dialog 개체를 바로 참조할 수도 있다. 
 
 ####3.4. Task 구조화
+
+Task를 한가지 이상 조합하여 상위 Task를 만들 수 있다. 
+
+여러개의 Task를 연결하여 실행할 수 있다. 아래의 예시에서는 sequenceTask는 sampleTask1을 실행하고, sampleTask2를 실행한다. 
+
+```javascript
+var sampleTask1 =
+{
+  name: 'sample1',
+  action: function (task, context, callback) {
+    task.result = 'sample1';
+    callback(task, context);
+  }
+};
+
+var sampleTask2 =
+{
+  name: 'sample2',
+  action: function (task, context, callback) {
+    task.result = 'sample2';
+    callback(task, context);
+  }
+};
+
+var sequenceTask = {
+	action: 'sequence'
+	tasks: [
+		sampleTask1,
+		sampleTask2,
+	]
+}
+```
+
+while이나 for 문처럼 특정조건이 true일때 까지 반복해서 Task을 수행하게 할 수 있다. 조건이 true인지를 체크하는 방법은 수식이나 boolean을 return 하는 함수로 할 수 있다. 아래 예에서는 10번까지 Task를 반복 수행한다. 
+
+```
+var sequenceTask = {
+	action: 'while'
+	whileIf: function(task, context) {
+		if(!task.count) task.count = 0;
+		else task.count++;
+		
+	    return task.count <= 10;
+    }, 
+	actions: [
+		sampleTask1,
+		sampleTask2
+	]
+}
+```
+
+if 문처럼 특정 조건일때만 Task를 실행하게 할 수 있다. 조건이 true인지를 판단하는 것은 조건식이나 function 으로 정의가 가능하다. 아래 예시에서는 sequence로 여러 task를 실행할 때 각 task if 조건이 맞는 경우에만 실행된다. 
+
+```
+var sequenceTask = {
+	action: 'sequence'
+	tasks: [
+		{
+		  name: 'sample1',
+		  if: function(task, context) {
+		    return task.mobile != undefined;
+		  },
+		  action: function (task, context, callback) {
+		    task.result = 'sample1';
+		    callback(task, context);
+		  }
+		},
+		{
+		  name: 'sample2',
+		  if: 'context.user.mobile == undefined',
+		  action: function (task, context, callback) {
+		    task.result = 'sample2';
+		    callback(task, context);
+		  }
+		}
+	]
+}
+```
+
+####3.3. Common Task 사용하기
+
+
 
 ###4. Type
 
