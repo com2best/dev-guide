@@ -760,7 +760,34 @@ Template task를 사용해서 기존에 있던 task를 재사용하여 확장할
 
 ####4.1. 사용자 입력에서 Type 넣기
 
-####4.2. Type 만들기
+####4.2. Type 정의
+
+아래와 같이 Type의 정의는 JSON으로 하고, typeCheck 함수를 통해 match 여부를 결정한다. 
+
+```
+var sampleType = {
+	name: 'sampleType',
+	typeCheck: function (text, type, task, context, callback) {
+	  var matched = true; 매치여부
+	  callback(text, task, matched);
+	}
+}
+```
+
+typeCheck 함수의 파라미터는 다음과 같다.
+
+* text: 사용자에서 입력받은 내용이 넘어온다. NLP 처리가 된 문장이 넘어온다.
+* type: type 개체 자체
+* task: task개체로 match된 값은 task.param 저장하여 task 처리에 사용한다.
+* context: context 개체
+* callback: match처리 후 비동기 방식으로 callback을 호출한다. 
+
+
+callback 함수 호출 시 파라미터는 다음과 같다.
+
+* text: 입력 paramter를 다시 넘겨 준다. 
+* task: 처리할 task
+* matched: 매치 여부
 
 ####4.3. Common Type 사용하기
 
