@@ -260,7 +260,7 @@ MEAN.js 는 MongoDB, ExpressJS, AngularJS, NodeJS를 사용한 MEAN Stack을 모
 
     http://localhost:3000
 
-![MEAN.js](https://raw.githubusercontent.com/com2best/dev-guide/tree/master/images/mean.js.png)
+![MEAN.js](https://raw.githubusercontent.com/com2best/dev-guide/blob/master/images/mean.js.png)
 
 위 예제는 기능이 동작하는 예제로서 Sign Up(회원가입), Sign In(로그인), Articles(게시판)이 동작한다.
 
