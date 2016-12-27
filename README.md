@@ -274,13 +274,13 @@ MEAN.js 는 MongoDB, ExpressJS, AngularJS, NodeJS를 사용한 MEAN Stack을 모
 
 왼쪽 WebStorm Project View에서 modules > articles 를 복사[Command+C] 하여, modules에 포커스를 두고 붙여넣기[Command+V]를 한다.이 때 복사할 폴터 이름(New Name) 에 tests라고 입력하고 복사한다. 이때 폴더명은 복수로 한다. 
 
-![folder copy](https://raw.githubusercontent.com/com2best/dev-guide/master/images/copy1.png)
+![folder copy](https://github.com/com2best/dev-guide/blob/master/images/copy1.js.png?raw=true)
 
 복사한 폴더의 내부는 article 기준으로 되어 있으므로 article를 test로 Article를 Test로  tests 폴더 안의 모든 파일 안을 Replace한다. Project View 에서 tests 폴더에 포커스를 두고 Replace in Path[Command+Shift+R]을 실행한다. 이때 Case sensitive를 체크하고, Scope는 Directory를 선택하고 지정할 디렉토리가 tests로 되어 있어야 한다. Whole project를 선택하면 전체 프로젝트가 바뀌게 되므로 반드시 Directory만 선택되어 있도록 매우 주의하여야 한다. 
 
-![folder copy](https://raw.githubusercontent.com/com2best/dev-guide/master/images/replace1.png)
+![folder copy](https://github.com/com2best/dev-guide/blob/master/images/replace1.js.png?raw=true)
 
-![folder copy](https://raw.githubusercontent.com/com2best/dev-guide/master/images/replace2.png)
+![folder copy](https://github.com/com2best/dev-guide/blob/master/images/replace2.js.png?raw=true)
 
 아직 파일이름들은 article로 되어 있으므로, 파일명을 모두 바꾸어 주어야 하는데 터미널에서 moduels > tests 내부로 이동한 후, 아래와 같이 입력 실행한다. 아래 내용은 article이 들어 있는 파일명을 test로 바꾸어 준다. 이 명령은 현재 폴더 아래이 파일명에 article이 들어있는 것을 모두 변경하므로, 반드시 tests 폴더 아래로 이동하여 실행해야 한다.
 
@@ -331,9 +331,9 @@ WebStorm 메뉴에서 VCS >  Checkout from Version Control 을 실행하고 아�
 
 Run > Edit Configuration에서 +로 추가를 선택하여 다음과 같이 설정한다.
 
-![Node.JS Debug](https://raw.githubusercontent.com/com2best/dev-guide/master/images/edit-config-1.png)
+![Node.JS Debug](https://github.com/com2best/dev-guide/blob/master/images/edit-config-1.js.png?raw=true)
 
-![Browser/LiveEdit](https://raw.githubusercontent.com/com2best/dev-guide/master/images/edit-config-2.png)
+![Browser/LiveEdit](https://github.com/com2best/dev-guide/blob/master/images/edit-config-2.js.png?raw=true)
 
 ![Node.JS Remote Debug](https://raw.githubusercontent.com/com2best/dev-guide/master/images/edit-config-3.png)
 
