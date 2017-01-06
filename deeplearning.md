@@ -1,5 +1,6 @@
 ## Deep Learning 
 
+처음에는 강조된 것 위주로 보면 됩니다. 
 
 ### 1. Tutorial
 
@@ -34,7 +35,7 @@
 
 
 #### 2.3. QA Generation
-* **[Deep Learning Models for Question Answering](http://www.slideshare.net/sujitpal/deep-learning-models-for-question-answering) **
+* **[Deep Learning Models for Question Answering](http://www.slideshare.net/sujitpal/deep-learning-models-for-question-answering)**
 * [sujitpal/dl-models-for-qa: Keras DL models to answer 8th grade science multiple choice questions (Kaggle AllenAI competition).](https://github.com/sujitpal/dl-models-for-qa)
 * [Deep Language Modeling for Question Answering using Keras](http://benjaminbolte.com/blog/2016/keras-language-modeling.html)
 * [codekansas/keras-language-modeling: Some language modeling tools for Keras](https://github.com/codekansas/keras-language-modeling)
