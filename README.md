@@ -274,13 +274,13 @@ MEAN.js 는 MongoDB, ExpressJS, AngularJS, NodeJS를 사용한 MEAN Stack을 모
 
 왼쪽 WebStorm Project View에서 modules > articles 를 복사[Command+C] 하여, modules에 포커스를 두고 붙여넣기[Command+V]를 한다.이 때 복사할 폴터 이름(New Name) 에 tests라고 입력하고 복사한다. 이때 폴더명은 복수로 한다. 
 
-![folder copy](https://raw.githubusercontent.com/com2best/dev-guide/master/images/copy1.png)
+![folder copy](https://github.com/com2best/dev-guide/blob/master/images/copy1.png?raw=true)
 
 복사한 폴더의 내부는 article 기준으로 되어 있으므로 article를 test로 Article를 Test로  tests 폴더 안의 모든 파일 안을 Replace한다. Project View 에서 tests 폴더에 포커스를 두고 Replace in Path[Command+Shift+R]을 실행한다. 이때 Case sensitive를 체크하고, Scope는 Directory를 선택하고 지정할 디렉토리가 tests로 되어 있어야 한다. Whole project를 선택하면 전체 프로젝트가 바뀌게 되므로 반드시 Directory만 선택되어 있도록 매우 주의하여야 한다. 
 
-![folder copy](https://raw.githubusercontent.com/com2best/dev-guide/master/images/replace1.png)
+![folder copy](https://github.com/com2best/dev-guide/blob/master/images/replace1.png?raw=true)
 
-![folder copy](https://raw.githubusercontent.com/com2best/dev-guide/master/images/replace2.png)
+![folder copy](https://github.com/com2best/dev-guide/blob/master/images/replace2.png?raw=true)
 
 아직 파일이름들은 article로 되어 있으므로, 파일명을 모두 바꾸어 주어야 하는데 터미널에서 moduels > tests 내부로 이동한 후, 아래와 같이 입력 실행한다. 아래 내용은 article이 들어 있는 파일명을 test로 바꾸어 준다. 이 명령은 현재 폴더 아래이 파일명에 article이 들어있는 것을 모두 변경하므로, 반드시 tests 폴더 아래로 이동하여 실행해야 한다.
 
@@ -327,17 +327,17 @@ WebStorm 을 사용하는 경우는 아래와 같이 개발환경을 셋팅하�
 
 WebStorm 메뉴에서 VCS >  Checkout from Version Control 을 실행하고 아래 그림과 같이 입력하여 프로젝트를 다운로드 한다. Parent Directory는 프로젝트 폴더를 모아놓은 상위 디렉토리명으로 하고, Directory Name은 원하는 프로젝트 이름으로 바꾼다.
 
-![git clone](https://raw.githubusercontent.com/com2best/dev-guide/master/images/meanjs-download.png)
+![git clone](https://github.com/com2best/dev-guide/blob/master/images/meanjs-download.png?raw=true)
 
 Run > Edit Configuration에서 +로 추가를 선택하여 다음과 같이 설정한다.
 
-![Node.JS Debug](https://raw.githubusercontent.com/com2best/dev-guide/master/images/edit-config-1.png)
+![Node.JS Debug](https://github.com/com2best/dev-guide/blob/master/images/edit-config-1.png.png?raw=true)
 
-![Browser/LiveEdit](https://raw.githubusercontent.com/com2best/dev-guide/master/images/edit-config-2.png)
+![Browser/LiveEdit](https://github.com/com2best/dev-guide/blob/master/images/edit-config-2.png?raw=true)
 
-![Node.JS Remote Debug](https://raw.githubusercontent.com/com2best/dev-guide/master/images/edit-config-3.png)
+![Node.JS Remote Debug](https://github.com/com2best/dev-guide/blob/master/images/edit-config-3.png?raw=true)
 
-![Javascript Debug](https://raw.githubusercontent.com/com2best/dev-guide/master/images/edit-config-4.png)
+![Javascript Debug](https://github.com/com2best/dev-guide/blob/master/images/edit-config-4.png?raw=true)
 
 위와 같이 설정하고 Debug [Command+D]를 실행해서 브라우저가 뜨면서 예제 화면이 나오는 지 확인한다.
 
@@ -345,11 +345,11 @@ Run > Edit Configuration에서 +로 추가를 선택하여 다음과 같이 설�
 
 다음은 Break Point 가 동작하는 지 확인해 본다. 아래와 같이 modules > articles > server > controllers > articles.server.controller.js 84번째 줄에 Break Point를 설정한다. Break Point 설정 방법은 해당 줄에서 [Command+F8]을 누르거나, 동그라미 위치를 더블클릭 하면 된다. 
 
-![debug1](https://raw.githubusercontent.com/com2best/dev-guide/master/images/debug1.png)
+![debug1](https://github.com/com2best/dev-guide/blob/master/images/debug1.png?raw=true)
 
 아래와 같이 modules > articles > client > controllers > list-articles.client.controller.js 11번째 줄에 Break Point를 설정한다.
 
-![debug2](https://raw.githubusercontent.com/com2best/dev-guide/master/images/debug2.png)
+![debug2](https://github.com/com2best/dev-guide/blob/master/images/debug2.png?raw=true)
 
 Break Point 위치는 MeanJS 버젼에 따라 달라질 수 있고 상황에 따라 서버와 클라이언트 Break Point 가 동작되는지 확인할 수 있는 위치로 하면 된다. 
 
