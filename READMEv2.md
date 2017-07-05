@@ -118,7 +118,7 @@ ATHENA는 대화를 트리 그래프 형식의 UI로 만들어, 사용자가 쉽
 * Task : api를 통해 데이터를 받는 것 등의 업무를 수행하기 위해 javascript code를 이용할 수 있습니다.
 * Output : 봇이 사용자에게 응답하는 정보입니다. Output은 Text, Contents, List, Action 등의 탭으로 이루어져 있습니다.
 
-![image](./image/대화단위.png)
+![image](./image/대화단위.png)
 
 #### 대화 흐름
 
