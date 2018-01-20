@@ -237,7 +237,7 @@ context의 경우, 해당 대화 카드가 실행된 맥락에 관한 정보를 
 챗봇이 다양한 기능을 수행하기 위해서는 외부 서버에 있는 다양한 정보와 기능을 이용해야 합니다. 외부 서버의 자원을 이용하기 위해 크롤링실행 대화카드에서 crawling이라는 이름의 실행 함수를 만들 겠습니다. 그 다음 외부 서버에 요청하기 위해서 request.js 와 cheerio Module을 이용하겠습니다. `default.js`파일의 상단에 다음 문구를 추가합니다.
 
     var request = require('request');
-    var cheerio = require('request');
+    var cheerio = require('cheerio');
 
 그리고 crawling 실행 함수의 비지니스 로직 영역에 다음의 코드를 추가 합니다.
 
