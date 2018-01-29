@@ -9,7 +9,13 @@ dialog = {
 	}
 }
 ```
-
+dialog = {
+	orgInput:
+	orgOutput:
+	input: 
+	task : 
+	output: 
+}
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjA4NzY5OTJdfQ==
+eyJoaXN0b3J5IjpbLTExNTEzNjc5MzZdfQ==
 -->
