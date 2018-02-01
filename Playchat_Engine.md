@@ -601,10 +601,13 @@ var googleTask = {
 context는 해당 task에 제한되지 않은 여러정보들을 담고 있습니다. 이를 통해 현재 사용자의 입력에 해당되는 정보뿐만 아니라, 사용자 정보 등 다양한 상황에 따른 처리를 할 수 있습니다. 
 현재 정의된 상황별 context는 다음과 같습니다.
 
-context.user: 사용자의 정보를 담고 있다.
-context.bot: 현재 봇의 정보를 담고 있다.
-context.botUser: 현재 봇을 사용하는 사용자의 정보를 담고 있다.
-context.dialog: Dialog가 여러단계로 이루어지는 경우 대화의 문맥을 파악하기 위해 사용 한다.
+* context.bot: 현재 봇의 정보를 담고 있다.
+* context.channel: 현재 채널의 정보를 담고 있다.
+* context.user: 사용자의 정보를 담고 있다.
+* context.session: 사용자의 한번의 상담 기간 동안의 정보. 채팅의 경우 채팅방 입장 기간 동안을 의미. 10분 동안 대화가 없으면 새로운 세션 생성
+* context.topic: 대화 중 하나의 주제에 대한 대화 정보를 저장한다. 
+* context.dialog: Dialog가 여러단계로 이루어지는 경우 대화의 문맥을 파악하기 위해 사용 한다.
+
 머니브레인 봇의 모든 데이터는 JSON을 기반으로 하므로, bot 개발시 필요한 경우 각 context 수준에 맞게 추가적인 key를 정의하여 사용할 수 있습니다.
 
 context = {
@@ -670,36 +673,86 @@ context =
 
 ## 5. Bot
 
-bot : {
-    id
-    name
-    description
-    use
-    public
-    user
-    language
-    
-    kakao: true
-    facebook: true
-    line: true
-    topicKeywors: []
-    
-    startDialog
-    noDialog
-    dialogs
-    commonDialogs
-    dialogsets
-    dialogsetContexts
-    contexts
-    types
-    typeChecks
-    tasks
-    actions
-    intents
-    entities
-    concepts
-    messages
+### Bot 설정 정보
+bot 설정 정보는 OOO.bot.js 에 저장된다. 
+
+* id: 내부 사용하는 id
+* name: 사용자에 표시되는 이름
+* description: 봇 설명
+* use: 해당 봇 사용 여부 
+* public: 해당봇 공개 여부. 혼자만 사용하는 봇도 가능
+* language: 봇의 사용 언어
+* dialogFiles: Dialog Graph에서 OOO.graph.js 파일의 로딩 순서 설정. 기본은 알파벳 순으로 로딩되는데, graph.js에 있는 dialogs의 순서가 검색 우선순위가 되므로 로딩 순서를 바꿀 수 있게 한다. 
+   
+* topicKeywords: 형식 String Array. Question Answer에서 주요한 키워드에 대해서 가중치를 두어서 우선 검색되도록 해야 사용자의 의도를 파악한 대화를 잘 답변함. 
+
+  park/park.bot.js
+  topicKeywords: ['탄핵', '최순실', '세월호', '구속', '감옥', '검찰', '특검', '청와대', '박근령', '파면', '삼성동', '사저','뇌물',
+    '드라마', '길라임', '보톡스', '성형', '시술', '머리', '삼성', '문재인', '안철수', '안희정', '이재명', '이재용', '재벌', '우병우', '김기춘', '장시호', '정유'],
+
+* useAutoCorrection: 오타수정 사용여부
+
+* quibble: 학습된 답변이 없을 경우. 둘러대기 답변 설정
+
+```
+  park/park.bot.js
+  useQuibble: true,
+  slangQuibbles: require('./quibbles').slangQuibbles,
+  nounQuibbles: require('./quibbles').nounQuibbles,
+  verbQuibbles: require('./quibbles').verbQuibbles,
+  sentenceQuibbles: require('./quibbles').sentenceQuibbles
+```
+   slangQuibbles: 욕설 퀴블
+   nounQuibble: 명사 퀴블. 특정 명사가 나오는 경우에 답변
+   verbQuibble: 동사 퀴블. 특정 동사가 나오는 경우에 답변
+   sentenceQuibble: 문장 형식에 따른 퀴블. 질문에 대한 둘러대기 등
+   
+* channels: 메신져 등 채널 정보 
+```
+channel : {
+   kakao: {
+     use: true,
+     keyboard: { type :"buttons", buttons:["배달주문시작", "배달내역보기", "도움말"]}
+   },
+   facebook: {
+     use: true,
+     id: '1166917363364364',
+     APP_SECRET :  "eb2974959255583150013648e7ac5da4",
+     PAGE_ACCESS_TOKEN :  "EAAJGZBCFjFukBA...,
+     VALIDATION_TOKEN : "moneybrain_token"
+   },
+   line: {
+      use: true,
+     CHANNEL_ID: '1487430426',
+     CHANNEL_SECRET: 'bb522efdeb637a4583807377a93ab527',
+     CHANNEL_ACCESS_TOKEN: 'qEZFTLvs+VZc26...'
+   },
+   naver: {
+     use: false,
+     clientId: 'c7VNVyIG3s95N4q2LWZQ',
+     clientSecret: 'HXWvXdrKi7'
+   },
 }
+```
+
+봇 로딩 시 생성되는 정보
+
+* startDialog: 시작 Dialog 객체
+* noDialog: 답변없음 Dialog 객체
+* dialogs: Dialog Graph에서 만든 전체 dialogs. children이 포함되어 있어서 하위 트리 검색 가능
+* commonDialogs: 공통 Dialogs
+* dialogsets: 사용하도록 설정된 대화학습에 있는 dialogset 참조들
+* dialogsetContexts: dialogste에서 사용하는 계층화된 context topics 정보
+* contexts: 계층화된 context topics 정보
+* types: Bot.setType 으로 설정된 모든 bot의 type들
+* typeChecks: Bot.setTypeCheck 로 설정된 모든 bot typeCheck
+* tasks: Bot.setTask로 설정된 모든 bot task
+* actions: Bot.setAction으로 설정된 모든 bot action
+* intents: bot에 만들어진 모든 intent 정보
+* entities: bot에 만들어진 모든 entity 정보
+* concepts: bot의 
+* messages
+
 
 botUser: {
 {
