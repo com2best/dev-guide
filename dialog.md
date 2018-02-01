@@ -1,4 +1,4 @@
-[TOC]
+`[toc]`
 
 ## 0. 자료보기 순서
 chatIF
@@ -186,5 +186,5 @@ action function(dialog, context, callback) {
     regexp
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTU1NzAzMjk5XX0=
+eyJoaXN0b3J5IjpbODA0ODE5Nzc5XX0=
 -->
