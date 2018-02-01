@@ -159,9 +159,9 @@ task = {
 action function(dialog, context, callback) {
 }
 
-##Task Template(상속)
+### Task Template(상속)
 
-##Task 조합
+## #Task 조합
     Sequence
     while
     if
@@ -185,5 +185,5 @@ action function(dialog, context, callback) {
     regexp
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1NzUxODI3NF19
+eyJoaXN0b3J5IjpbMTUzMDgxODIzNl19
 -->
