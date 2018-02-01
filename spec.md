@@ -47,7 +47,7 @@ list
     
     options: {output, prefix, postfix, returnDialog}
     
-##Context
+## 2. Context
 context = {
     bot: {}
     channel: {}
@@ -146,9 +146,9 @@ botUser: {
   "orgBot": {}
   
 }
-#Task
+## Task
 
-## Task Basic
+### basic
 task = {
     name:
     preCallback: function(dialog, context, callback)
@@ -159,15 +159,15 @@ task = {
 action function(dialog, context, callback) {
 }
 
-##Task Template(상속)
+### Task Template(상속)
 
-##Task 조합
+### Task 조합
     Sequence
     while
     if
     data merge option
 
-#Common Modules
+## Common Modules
 ##common Type
 
 * listType
@@ -185,5 +185,5 @@ action function(dialog, context, callback) {
     regexp
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYyMjQ4NDA5XX0=
+eyJoaXN0b3J5IjpbMTA1MDMzODQ2OV19
 -->
