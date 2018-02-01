@@ -148,7 +148,7 @@ botUser: {
 }
 ## Task
 
-### Task
+### basic
 task = {
     name:
     preCallback: function(dialog, context, callback)
@@ -185,5 +185,5 @@ action function(dialog, context, callback) {
     regexp
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjIwODYyNTIxXX0=
+eyJoaXN0b3J5IjpbMTk1NzUxODI3NF19
 -->
