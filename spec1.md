@@ -161,13 +161,13 @@ action function(dialog, context, callback) {
 
 ### Task Template(상속)
 
-## #Task 조합
+### Task 조합
     Sequence
     while
     if
     data merge option
 
-#Common Modules
+## Common Modules
 ##common Type
 
 * listType
@@ -185,5 +185,5 @@ action function(dialog, context, callback) {
     regexp
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUzMDgxODIzNl19
+eyJoaXN0b3J5IjpbMTA1MDMzODQ2OV19
 -->
