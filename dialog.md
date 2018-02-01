@@ -47,7 +47,7 @@ list
     
     options: {output, prefix, postfix, returnDialog}
     
-##Context
+## 2. Context
 context = {
     bot: {}
     channel: {}
@@ -146,9 +146,9 @@ botUser: {
   "orgBot": {}
   
 }
-#Task
+## Task
 
-## Task Basic
+### Task
 task = {
     name:
     preCallback: function(dialog, context, callback)
@@ -185,5 +185,5 @@ action function(dialog, context, callback) {
     regexp
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYyMjQ4NDA5XX0=
+eyJoaXN0b3J5IjpbNjIwODYyNTIxXX0=
 -->
