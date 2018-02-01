@@ -1,9 +1,8 @@
 
-0. 자료보기 순서
+## 0. 자료보기 순서
 chatIF
 
-# DM
-## Dialog
+## 1. Dialog
 dialog = {
     orgInput: []
     orgOutput: [] 
@@ -186,5 +185,5 @@ action function(dialog, context, callback) {
     regexp
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MTIwODEyMDZdfQ==
+eyJoaXN0b3J5IjpbLTYyMjQ4NDA5XX0=
 -->
