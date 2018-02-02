@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4d652fd8-c11d-4494-bab1-7dd09250e143" name="Default" comment="dialog 업데이트">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec.md" afterPath="$PROJECT_DIR$/spec.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dialog.md" afterPath="$PROJECT_DIR$/dialog.md" />
     </list>
     <ignored path="dev-guide.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,8 +27,8 @@
         <entry file="file://$PROJECT_DIR$/ChatIF.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="581">
-                <caret line="249" column="21" lean-forward="true" selection-start-line="249" selection-start-column="21" selection-end-line="249" selection-end-column="21" />
+              <first_editor relative-caret-position="3735">
+                <caret line="249" column="21" lean-forward="false" selection-start-line="249" selection-start-column="21" selection-end-line="249" selection-end-column="21" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -49,12 +49,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dialog.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dialog.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dialog.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="477">
-                <caret line="762" column="16" lean-forward="true" selection-start-line="762" selection-start-column="0" selection-end-line="762" selection-end-column="16" />
+              <first_editor relative-caret-position="90">
+                <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
                 <folding>
                   <marker date="1517474281000" expanded="true" signature="5778:5986" ph="{...}" />
                   <marker date="1517474281000" expanded="true" signature="5874:5983" ph="{...}" />
@@ -84,8 +84,8 @@
         <entry file="file://$PROJECT_DIR$/READMEv2.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="942">
-                <caret line="690" column="0" lean-forward="true" selection-start-line="323" selection-start-column="0" selection-end-line="690" selection-end-column="0" />
+              <first_editor relative-caret-position="10350">
+                <caret line="690" column="0" lean-forward="false" selection-start-line="323" selection-start-column="0" selection-end-line="690" selection-end-column="0" />
                 <folding>
                   <marker date="1517223601000" expanded="true" signature="11402:11517" ph="{&quot;name&quot;: 'defaultTask'...}" />
                   <marker date="1517223601000" expanded="true" signature="11475:11515" ph="{...}" />
@@ -134,7 +134,7 @@
         <entry file="file://$PROJECT_DIR$/READMEv1.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="15">
+              <first_editor relative-caret-position="240">
                 <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
                 <folding>
                   <marker date="1517223601000" expanded="true" signature="8068:8183" ph="{&quot;name&quot;: 'defaultTask'...}" />
@@ -180,32 +180,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spec.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="spec.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="664">
-                <caret line="680" column="4" lean-forward="true" selection-start-line="680" selection-start-column="4" selection-end-line="680" selection-end-column="4" />
-                <folding>
-                  <marker date="1517487626000" expanded="true" signature="5437:5552" ph="{&quot;name&quot;: 'defaultTask'...}" />
-                  <marker date="1517487626000" expanded="true" signature="5510:5550" ph="{...}" />
-                  <marker date="1517487626000" expanded="true" signature="5723:5785" ph="{...}" />
-                  <marker date="1517487626000" expanded="true" signature="7058:7114" ph="{&quot;url&quot;: 'https://www.google.com'...}" />
-                  <marker date="1517487626000" expanded="true" signature="7244:7298" ph="{&quot;url&quot;: 'http://www.naver.com'...}" />
-                  <marker date="1517487626000" expanded="true" signature="8538:8820" ph="{&quot;url&quot;: 'https://www.google.co.kr/search?q=moneybrain.ai'...}" />
-                  <marker date="1517487626000" expanded="true" signature="8626:8818" ph="{&quot;_text&quot;: 'body'...}" />
-                  <marker date="1517487626000" expanded="true" signature="8687:8812" ph="{&quot;_repeat&quot;: '//div[@class=&quot;srg&quot;]/div[@class=&quot;g&quot;]'...}" />
-                  <marker date="1517487626000" expanded="true" signature="10941:11072" ph="{&quot;name&quot;: 'sample1'...}" />
-                  <marker date="1517487626000" expanded="true" signature="11007:11070" ph="{...}" />
-                  <marker date="1517487626000" expanded="true" signature="11093:11224" ph="{&quot;name&quot;: 'sample2'...}" />
-                  <marker date="1517487626000" expanded="true" signature="11159:11222" ph="{...}" />
-                  <marker date="1517487626000" expanded="true" signature="11246:11312" ph="{&quot;action&quot;: 'sequence'...}" />
-                  <marker date="1517487626000" expanded="true" signature="11276:11310" ph="[...]" />
-                  <marker date="1517487626000" expanded="true" signature="14078:14168" ph="{&quot;name&quot;: 'moneybrainTask'...}" />
-                  <marker date="1517487626000" expanded="true" signature="14139:14166" ph="{&quot;q&quot;: 'moneybrain.ai'...}" />
-                  <marker date="1517487626000" expanded="true" signature="14188:14266" ph="{&quot;url&quot;: 'https://www.google.com'...}" />
-                  <marker date="1517487626000" expanded="true" signature="14230:14242" ph="{&quot;q&quot;: ''...}" />
-                </folding>
+              <first_editor relative-caret-position="6767">
+                <caret line="993" column="0" lean-forward="false" selection-start-line="993" selection-start-column="0" selection-end-line="993" selection-end-column="0" />
+                <folding />
               </first_editor>
               <second_editor />
             </state>
@@ -221,8 +202,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/deeplearning.md" />
-        <option value="$PROJECT_DIR$/dialog.md" />
         <option value="$PROJECT_DIR$/spec.md" />
+        <option value="$PROJECT_DIR$/dialog.md" />
       </list>
     </option>
   </component>
@@ -233,10 +214,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1439" />
-    <option name="y" value="-743" />
+    <option name="x" value="1459" />
+    <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="1638" />
+    <option name="height" value="693" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -254,7 +235,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -269,6 +249,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -276,6 +257,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
     <UpdatedFiles>
@@ -301,6 +283,9 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Playchat_Engine</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Playchat_Engine.html</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Playchat_Engine.md</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -490,7 +475,8 @@
       <workItem from="1483692453989" duration="94000" />
       <workItem from="1517223579539" duration="2248000" />
       <workItem from="1517322547380" duration="4442000" />
-      <workItem from="1517472196319" duration="2606000" />
+      <workItem from="1517472196319" duration="3157000" />
+      <workItem from="1517548628226" duration="54000" />
     </task>
     <task id="LOCAL-00001" summary="dialog 업데이트">
       <created>1480931535398</created>
@@ -506,27 +492,35 @@
       <option name="project" value="LOCAL" />
       <updated>1517474289602</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="dialog 업데이트">
+      <created>1517487643200</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1517487643200</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13126000" />
+    <option name="totallyTimeSpent" value="13731000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1439" y="-743" width="1440" height="1638" extended-state="0" />
+    <frame x="1459" y="23" width="1440" height="693" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15138888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32950923" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32950923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32950923" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -550,6 +544,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="dialog 업데이트" />
     <option name="LAST_COMMIT_MESSAGE" value="dialog 업데이트" />
   </component>
@@ -558,6 +553,164 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ChatIF.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="3735">
+            <caret line="249" column="21" lean-forward="true" selection-start-line="249" selection-start-column="21" selection-end-line="249" selection-end-column="21" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec1.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dialog.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="11430">
+            <caret line="762" column="16" lean-forward="true" selection-start-line="762" selection-start-column="0" selection-end-line="762" selection-end-column="16" />
+            <folding>
+              <marker date="1517474281000" expanded="true" signature="5778:5986" ph="{...}" />
+              <marker date="1517474281000" expanded="true" signature="5874:5983" ph="{...}" />
+              <marker date="1517474281000" expanded="true" signature="5921:5980" ph="{...}" />
+              <marker date="1517474281000" expanded="true" signature="6823:6893" ph="{&quot;url&quot;: 'https://www.google.co.kr/search?q='...}" />
+              <marker date="1517474281000" expanded="true" signature="6942:7185" ph="{...}" />
+              <marker date="1517474281000" expanded="true" signature="7073:7182" ph="{...}" />
+              <marker date="1517474281000" expanded="true" signature="7120:7179" ph="{...}" />
+              <marker date="1517474281000" expanded="true" signature="11129:11268" ph="{&quot;name&quot;: 'sample'...}" />
+              <marker date="1517474281000" expanded="true" signature="11162:11241" ph="[...]" />
+              <marker date="1517474281000" expanded="true" signature="11808:11939" ph="{&quot;name&quot;: 'sample1'...}" />
+              <marker date="1517474281000" expanded="true" signature="11874:11937" ph="{...}" />
+              <marker date="1517474281000" expanded="true" signature="11960:12091" ph="{&quot;name&quot;: 'sample2'...}" />
+              <marker date="1517474281000" expanded="true" signature="12026:12089" ph="{...}" />
+              <marker date="1517474281000" expanded="true" signature="12113:12179" ph="{&quot;action&quot;: 'sequence'...}" />
+              <marker date="1517474281000" expanded="true" signature="12143:12177" ph="[...]" />
+              <marker date="1517474281000" expanded="true" signature="16734:16778" ph="{&quot;name&quot;: 'sample'...}" />
+              <marker date="1517474281000" expanded="true" signature="16828:16889" ph="{...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/READMEv2.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="10350">
+            <caret line="690" column="0" lean-forward="true" selection-start-line="323" selection-start-column="0" selection-end-line="690" selection-end-column="0" />
+            <folding>
+              <marker date="1517223601000" expanded="true" signature="11402:11517" ph="{&quot;name&quot;: 'defaultTask'...}" />
+              <marker date="1517223601000" expanded="true" signature="11475:11515" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="11689:11751" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="12591:12799" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="12687:12796" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="12734:12793" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="13025:13081" ph="{&quot;url&quot;: 'https://www.google.com'...}" />
+              <marker date="1517223601000" expanded="true" signature="13211:13265" ph="{&quot;url&quot;: 'http://www.naver.com'...}" />
+              <marker date="1517223601000" expanded="true" signature="14154:14294" ph="{&quot;url&quot;: 'https://www.google.co.kr/search?q=moneybrain.ai'...}" />
+              <marker date="1517223601000" expanded="true" signature="14242:14292" ph="{&quot;_text&quot;: 'body'...}" />
+              <marker date="1517223601000" expanded="true" signature="14507:14789" ph="{&quot;url&quot;: 'https://www.google.co.kr/search?q=moneybrain.ai'...}" />
+              <marker date="1517223601000" expanded="true" signature="14595:14787" ph="{&quot;_text&quot;: 'body'...}" />
+              <marker date="1517223601000" expanded="true" signature="14656:14781" ph="{&quot;_repeat&quot;: '//div[@class=&quot;srg&quot;]/div[@class=&quot;g&quot;]'...}" />
+              <marker date="1517223601000" expanded="true" signature="14935:15057" ph="{&quot;url&quot;: 'https://www.google.com'...}" />
+              <marker date="1517223601000" expanded="true" signature="14999:15055" ph="{&quot;_text&quot;: 'body'...}" />
+              <marker date="1517223601000" expanded="true" signature="15272:15488" ph="{&quot;url&quot;: 'https://www.google.com'...}" />
+              <marker date="1517223601000" expanded="true" signature="15336:15485" ph="{&quot;_text&quot;: 'body'...}" />
+              <marker date="1517223601000" expanded="true" signature="15397:15455" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="15652:15948" ph="{&quot;name&quot;: 'sample'...}" />
+              <marker date="1517223601000" expanded="true" signature="15721:15796" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="15872:15946" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="16221:16360" ph="{&quot;name&quot;: 'sample'...}" />
+              <marker date="1517223601000" expanded="true" signature="16254:16333" ph="[...]" />
+              <marker date="1517223601000" expanded="true" signature="16913:17044" ph="{&quot;name&quot;: 'sample1'...}" />
+              <marker date="1517223601000" expanded="true" signature="16979:17042" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="17065:17196" ph="{&quot;name&quot;: 'sample2'...}" />
+              <marker date="1517223601000" expanded="true" signature="17131:17194" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="17218:17284" ph="{&quot;action&quot;: 'sequence'...}" />
+              <marker date="1517223601000" expanded="true" signature="17248:17282" ph="[...]" />
+              <marker date="1517223601000" expanded="true" signature="18700:19011" ph="{&quot;name&quot;: 'sample'...}" />
+              <marker date="1517223601000" expanded="true" signature="18769:18851" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="18927:19009" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="20052:20142" ph="{&quot;name&quot;: 'moneybrainTask'...}" />
+              <marker date="1517223601000" expanded="true" signature="20113:20140" ph="{&quot;q&quot;: 'moneybrain.ai'...}" />
+              <marker date="1517223601000" expanded="true" signature="20162:20240" ph="{&quot;url&quot;: 'https://www.google.com'...}" />
+              <marker date="1517223601000" expanded="true" signature="20204:20216" ph="{&quot;q&quot;: ''...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/READMEv1.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="240">
+            <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+            <folding>
+              <marker date="1517223601000" expanded="true" signature="8068:8183" ph="{&quot;name&quot;: 'defaultTask'...}" />
+              <marker date="1517223601000" expanded="true" signature="8141:8181" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="8361:8423" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="9271:9479" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="9367:9476" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="9414:9473" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="9705:9761" ph="{&quot;url&quot;: 'https://www.google.com'...}" />
+              <marker date="1517223601000" expanded="true" signature="9891:9945" ph="{&quot;url&quot;: 'http://www.naver.com'...}" />
+              <marker date="1517223601000" expanded="true" signature="10848:10988" ph="{&quot;url&quot;: 'https://www.google.co.kr/search?q=moneybrain.ai'...}" />
+              <marker date="1517223601000" expanded="true" signature="10936:10986" ph="{&quot;_text&quot;: 'body'...}" />
+              <marker date="1517223601000" expanded="true" signature="11201:11483" ph="{&quot;url&quot;: 'https://www.google.co.kr/search?q=moneybrain.ai'...}" />
+              <marker date="1517223601000" expanded="true" signature="11289:11481" ph="{&quot;_text&quot;: 'body'...}" />
+              <marker date="1517223601000" expanded="true" signature="11350:11475" ph="{&quot;_repeat&quot;: '//div[@class=&quot;srg&quot;]/div[@class=&quot;g&quot;]'...}" />
+              <marker date="1517223601000" expanded="true" signature="11629:11751" ph="{&quot;url&quot;: 'https://www.google.com'...}" />
+              <marker date="1517223601000" expanded="true" signature="11693:11749" ph="{&quot;_text&quot;: 'body'...}" />
+              <marker date="1517223601000" expanded="true" signature="11966:12182" ph="{&quot;url&quot;: 'https://www.google.com'...}" />
+              <marker date="1517223601000" expanded="true" signature="12030:12179" ph="{&quot;_text&quot;: 'body'...}" />
+              <marker date="1517223601000" expanded="true" signature="12091:12149" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="12352:12648" ph="{&quot;name&quot;: 'sample'...}" />
+              <marker date="1517223601000" expanded="true" signature="12421:12496" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="12572:12646" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="12927:13066" ph="{&quot;name&quot;: 'sample'...}" />
+              <marker date="1517223601000" expanded="true" signature="12960:13039" ph="[...]" />
+              <marker date="1517223601000" expanded="true" signature="13625:13756" ph="{&quot;name&quot;: 'sample1'...}" />
+              <marker date="1517223601000" expanded="true" signature="13691:13754" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="13777:13908" ph="{&quot;name&quot;: 'sample2'...}" />
+              <marker date="1517223601000" expanded="true" signature="13843:13906" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="13930:13996" ph="{&quot;action&quot;: 'sequence'...}" />
+              <marker date="1517223601000" expanded="true" signature="13960:13994" ph="[...]" />
+              <marker date="1517223601000" expanded="true" signature="15418:15729" ph="{&quot;name&quot;: 'sample'...}" />
+              <marker date="1517223601000" expanded="true" signature="15487:15569" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="15645:15727" ph="{...}" />
+              <marker date="1517223601000" expanded="true" signature="16776:16866" ph="{&quot;name&quot;: 'moneybrainTask'...}" />
+              <marker date="1517223601000" expanded="true" signature="16837:16864" ph="{&quot;q&quot;: 'moneybrain.ai'...}" />
+              <marker date="1517223601000" expanded="true" signature="16886:16964" ph="{&quot;url&quot;: 'https://www.google.com'...}" />
+              <marker date="1517223601000" expanded="true" signature="16928:16940" ph="{&quot;q&quot;: ''...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="8370">
+            <caret line="558" column="0" lean-forward="true" selection-start-line="558" selection-start-column="0" selection-end-line="558" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ChatIF.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -699,26 +852,7 @@
         <state split_layout="FIRST">
           <first_editor relative-caret-position="2175">
             <caret line="145" column="0" lean-forward="true" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
-            <folding>
-              <marker date="1517487626000" expanded="true" signature="5437:5552" ph="{&quot;name&quot;: 'defaultTask'...}" />
-              <marker date="1517487626000" expanded="true" signature="5510:5550" ph="{...}" />
-              <marker date="1517487626000" expanded="true" signature="5723:5785" ph="{...}" />
-              <marker date="1517487626000" expanded="true" signature="7058:7114" ph="{&quot;url&quot;: 'https://www.google.com'...}" />
-              <marker date="1517487626000" expanded="true" signature="7244:7298" ph="{&quot;url&quot;: 'http://www.naver.com'...}" />
-              <marker date="1517487626000" expanded="true" signature="8538:8820" ph="{&quot;url&quot;: 'https://www.google.co.kr/search?q=moneybrain.ai'...}" />
-              <marker date="1517487626000" expanded="true" signature="8626:8818" ph="{&quot;_text&quot;: 'body'...}" />
-              <marker date="1517487626000" expanded="true" signature="8687:8812" ph="{&quot;_repeat&quot;: '//div[@class=&quot;srg&quot;]/div[@class=&quot;g&quot;]'...}" />
-              <marker date="1517487626000" expanded="true" signature="10941:11072" ph="{&quot;name&quot;: 'sample1'...}" />
-              <marker date="1517487626000" expanded="true" signature="11007:11070" ph="{...}" />
-              <marker date="1517487626000" expanded="true" signature="11093:11224" ph="{&quot;name&quot;: 'sample2'...}" />
-              <marker date="1517487626000" expanded="true" signature="11159:11222" ph="{...}" />
-              <marker date="1517487626000" expanded="true" signature="11246:11312" ph="{&quot;action&quot;: 'sequence'...}" />
-              <marker date="1517487626000" expanded="true" signature="11276:11310" ph="[...]" />
-              <marker date="1517487626000" expanded="true" signature="14078:14168" ph="{&quot;name&quot;: 'moneybrainTask'...}" />
-              <marker date="1517487626000" expanded="true" signature="14139:14166" ph="{&quot;q&quot;: 'moneybrain.ai'...}" />
-              <marker date="1517487626000" expanded="true" signature="14188:14266" ph="{&quot;url&quot;: 'https://www.google.com'...}" />
-              <marker date="1517487626000" expanded="true" signature="14230:14242" ph="{&quot;q&quot;: ''...}" />
-            </folding>
+            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -750,7 +884,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -811,17 +944,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shinhan.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -866,27 +999,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/대화 작성 가이드.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="15">
             <caret line="1" column="3" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
-            <folding />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/READMEv2.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="942">
-            <caret line="690" column="0" lean-forward="true" selection-start-line="323" selection-start-column="0" selection-end-line="690" selection-end-column="0" />
+          <first_editor relative-caret-position="10350">
+            <caret line="690" column="0" lean-forward="false" selection-start-line="323" selection-start-column="0" selection-end-line="690" selection-end-column="0" />
             <folding>
               <marker date="1517223601000" expanded="true" signature="11402:11517" ph="{&quot;name&quot;: 'defaultTask'...}" />
               <marker date="1517223601000" expanded="true" signature="11475:11515" ph="{...}" />
@@ -933,7 +1064,7 @@
     <entry file="file://$PROJECT_DIR$/READMEv1.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="15">
+          <first_editor relative-caret-position="240">
             <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
             <folding>
               <marker date="1517223601000" expanded="true" signature="8068:8183" ph="{&quot;name&quot;: 'defaultTask'...}" />
@@ -978,11 +1109,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dialog.md">
+    <entry file="file://$PROJECT_DIR$/ChatIF.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="143" column="51" lean-forward="true" selection-start-line="143" selection-start-column="51" selection-end-line="143" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="477">
-            <caret line="762" column="16" lean-forward="true" selection-start-line="762" selection-start-column="0" selection-end-line="762" selection-end-column="16" />
+          <first_editor relative-caret-position="3735">
+            <caret line="249" column="21" lean-forward="false" selection-start-line="249" selection-start-column="21" selection-end-line="249" selection-end-column="21" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec1.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="6767">
+            <caret line="993" column="0" lean-forward="false" selection-start-line="993" selection-start-column="0" selection-end-line="993" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dialog.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="90">
+            <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
             <folding>
               <marker date="1517474281000" expanded="true" signature="5778:5986" ph="{...}" />
               <marker date="1517474281000" expanded="true" signature="5874:5983" ph="{...}" />
@@ -1001,69 +1176,6 @@
               <marker date="1517474281000" expanded="true" signature="12143:12177" ph="[...]" />
               <marker date="1517474281000" expanded="true" signature="16734:16778" ph="{&quot;name&quot;: 'sample'...}" />
               <marker date="1517474281000" expanded="true" signature="16828:16889" ph="{...}" />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ChatIF.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="581">
-            <caret line="249" column="21" lean-forward="true" selection-start-line="249" selection-start-column="21" selection-end-line="249" selection-end-column="21" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="143" column="51" lean-forward="true" selection-start-line="143" selection-start-column="51" selection-end-line="143" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec1.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="664">
-            <caret line="680" column="4" lean-forward="true" selection-start-line="680" selection-start-column="4" selection-end-line="680" selection-end-column="4" />
-            <folding>
-              <marker date="1517487626000" expanded="true" signature="5437:5552" ph="{&quot;name&quot;: 'defaultTask'...}" />
-              <marker date="1517487626000" expanded="true" signature="5510:5550" ph="{...}" />
-              <marker date="1517487626000" expanded="true" signature="5723:5785" ph="{...}" />
-              <marker date="1517487626000" expanded="true" signature="7058:7114" ph="{&quot;url&quot;: 'https://www.google.com'...}" />
-              <marker date="1517487626000" expanded="true" signature="7244:7298" ph="{&quot;url&quot;: 'http://www.naver.com'...}" />
-              <marker date="1517487626000" expanded="true" signature="8538:8820" ph="{&quot;url&quot;: 'https://www.google.co.kr/search?q=moneybrain.ai'...}" />
-              <marker date="1517487626000" expanded="true" signature="8626:8818" ph="{&quot;_text&quot;: 'body'...}" />
-              <marker date="1517487626000" expanded="true" signature="8687:8812" ph="{&quot;_repeat&quot;: '//div[@class=&quot;srg&quot;]/div[@class=&quot;g&quot;]'...}" />
-              <marker date="1517487626000" expanded="true" signature="10941:11072" ph="{&quot;name&quot;: 'sample1'...}" />
-              <marker date="1517487626000" expanded="true" signature="11007:11070" ph="{...}" />
-              <marker date="1517487626000" expanded="true" signature="11093:11224" ph="{&quot;name&quot;: 'sample2'...}" />
-              <marker date="1517487626000" expanded="true" signature="11159:11222" ph="{...}" />
-              <marker date="1517487626000" expanded="true" signature="11246:11312" ph="{&quot;action&quot;: 'sequence'...}" />
-              <marker date="1517487626000" expanded="true" signature="11276:11310" ph="[...]" />
-              <marker date="1517487626000" expanded="true" signature="14078:14168" ph="{&quot;name&quot;: 'moneybrainTask'...}" />
-              <marker date="1517487626000" expanded="true" signature="14139:14166" ph="{&quot;q&quot;: 'moneybrain.ai'...}" />
-              <marker date="1517487626000" expanded="true" signature="14188:14266" ph="{&quot;url&quot;: 'https://www.google.com'...}" />
-              <marker date="1517487626000" expanded="true" signature="14230:14242" ph="{&quot;q&quot;: ''...}" />
             </folding>
           </first_editor>
           <second_editor />
