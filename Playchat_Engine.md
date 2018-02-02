@@ -15,23 +15,51 @@ Table Of Contents
 
 ```
 dialog = {
-    orgInput: []
-    orgOutput: [] 
-    input: {
-        text: String
-        nlp: []
-        intents: []
-        entities: []
-        types: {}
-        sentence
-        emotion
-    }
+    originalInput: [],
+    originalOutput:
+	input: {
+	    text:
+	    nlpText: 
+	    nlp: []
+	    intents: []
+	    entities: []
+	    types: {}
+	    sentence:
+	    emotion
+	},
     task: 
+    data:
+	option:
     output:   
 }
 ```
 
+context.botUser 하위 정보 현재 있는 값들을 어디로 옮길지 고민
 
+* inNLP: (dialog.input.nlp 로 이동)
+* inRaw: (dialog.input.nlp 로 이동)
+* intent: (dialog.input.intent로 이동)
+* entities: (dialog.input.intent로 이동) 
+* nlp: (dialog.input.nlp 로 이동)
+* nlu
+* topic: 현재 선택된 context (context.session으로 이동)
+* sentenceInfo: aspectType, questionWord, sentenceType, tenseType, toneType 
+* currentDialog
+* _currentDialog
+* lastDialog
+* orgBot
+
+context.dialog 하위 정보 어디로 옯길지 고민
+
+* inNLP: (dialog.input.nlp 로 이동)
+* inRaw: (dialog.input.nlp 로 이동)
+* isFail:
+* numOfPage:
+* page
+* typeDoc
+* typeInits
+* typeMatches
+ 
 ###  Input
 
 Input은 아래와 같은 종류가 있다. 
@@ -47,13 +75,13 @@ Input은 아래와 같은 종류가 있다.
 ###  Output
 output format으로 값을 변환 한다. 
 
-* 반복 ## 
-* 치환 ++ 
-* 예시: [+category+]\n##+index+. +name+ +openStatus+\n#0. 이전\n!. 처음(주문취소)
+* 반복 <repeat doc> </repeat>
+* 치환 {변수}
+<repeat doc>{index}. {name}\n</repeat>
  
 index는 1번부터 시작되는 번호로 자동으로 만든다. 
-치환할 변수는 task, context.dialog, context.user 순으로 scope 별로 순차적으로 찾는다. 
-치환은 tag를 {}로 변경, {변수명}. 단기적으로는 +변수명+와 {변수명} 모두 되도록.
+dialog.product.name 과 같이 하위 json 검색 가능
+(검토) 치환할 변수는 task, context.dialog, context.user 순으로 scope 별로 순차적으로 찾는다. 
 
 현재는 processOuput function에 구현되어 있다. 
 
@@ -68,8 +96,9 @@ index는 1번부터 시작되는 번호로 자동으로 만든다.
 Action의 종류
 
 * call
-* up: 기본적으로는 상위 Dialog인데, 현재는 이전 Dialog와 혼합해서 사용됨
-* back: (TOBE)
+* up: 강제로 상위 Dialog
+* back: 기본적으로는 상위 Dialog인데, 현재는 이전 Dialog와 혼합해서 사용됨
+  call로 이동한 경우는 이전 dialog인데, call이 없었으면 상위로
 * repeat
 * returnCall: 다른 Dialog로 이동한후 다시 원래 Dialog로 복귀할 때 
 * return: returnDialog로 호출되었을 때 호출한 Dialog로 복귀
@@ -123,7 +152,7 @@ type의 처리는 [dialog.js::executeType](https://github.com/com2best/bot-web/b
 
 #### type option
 
-* raw: 일반적으로 type 처리하기전에 자연어 처리 후 typeCheck함수를 실행하는데, 원문으로 typeCheck에 넘겨줌. 주소를 원문이 필요한 경우
+* (삭제)raw: 일반적으로 type 처리하기전에 자연어 처리 후 typeCheck함수를 실행하는데, 원문으로 typeCheck에 넘겨줌. 주소를 원문이 필요한 경우
 * context: type이 매칭된 경우 user에 저장. 주소, 휴대폰번호 등. true, false 모두 가능
   {types: [{type : type.mobileType, context: false}]}
 * init: 여러단계에 걸처서 Dialog호출이 이루어진경우 처음 진입시의 input을 사용함.
@@ -174,9 +203,24 @@ B2B Demo
 
 ### QA Options
 
+```	
+      limit: 8,
+      matchRate: 0.34,
+      matchCount: 3,
+      exclude: ['하다', '이다'],
+      mongo: {
+        model: 'dialogsetdialogs',
+        queryStatic: {$or: queryList},
+        queryFields: ['input'],
+        fields: 'dialogset input inputRaw output context id' ,
+        taskFields: ['input', 'inputRaw', 'output', 'matchCount', 'matchRate', 'dialogset', 'context'],
+        minMatch: 1,
+      }
+```
 
 ### QA 고려사항
 
+* QA 검색을 type으로 하여 전체에 사용하고, 메뉴 안에서도 사용 가능하도록
 * DM-DL Hybrid: Intent 분석과 QA를 같은 구조로하고, 더 확률이 높은 것을 선택, 하위 구조에서는 우선권
 * context 기능: Context 인식, Context 스위칭, 계층적 Context
 
@@ -598,9 +642,11 @@ var googleTask = {
 
 ## 4. Context
 
-context는 해당 task에 제한되지 않은 여러정보들을 담고 있습니다. 이를 통해 현재 사용자의 입력에 해당되는 정보뿐만 아니라, 사용자 정보 등 다양한 상황에 따른 처리를 할 수 있습니다. 
+context는 해당 dialog에 제한되지 않은 여러정보들을 담고 있습니다. 이를 통해 현재 사용자의 입력에 해당되는 정보뿐만 아니라, 사용자 정보 등 다양한 상황에 따른 처리를 할 수 있습니다. 
+
 현재 정의된 상황별 context는 다음과 같습니다.
 
+* context.global: 모든 봇들이 공통으로 사용하는 정보를 담고 있다.
 * context.bot: 현재 봇의 정보를 담고 있다.
 * context.channel: 현재 채널의 정보를 담고 있다.
 * context.user: 사용자의 정보를 담고 있다.
@@ -610,54 +656,46 @@ context는 해당 task에 제한되지 않은 여러정보들을 담고 있습�
 
 머니브레인 봇의 모든 데이터는 JSON을 기반으로 하므로, bot 개발시 필요한 경우 각 context 수준에 맞게 추가적인 key를 정의하여 사용할 수 있습니다.
 
-context = {
-    bot: {}
-    channel: {}
-    user: {}
-    session: {}
-    topic: {}
+### Global context
+
+* dialogs: 
+* commonDialogs:
+* tasks:
+* actions:
+* types:
+* typeChecks
+* concepts:
+* quibbles
+
+### Bot context
+
+context.bot에는 로딩한 bot 객체를 넣는다. 
+
+### Channel context
+```
+channel: {
+  "name": "socket"
 }
+```
+### User context
 
+context.user 에는 db에서 로딩한 user정보와 해당봇의 사용자에 대한 동적정보를 모두 담는다. 
 
-AS-IS
-context =
-{
-    bot: {
-    
-      "_id": "59700f7f3080aa1802291ce1",
-      "user": "578e5cdc06c7dc1d3e86649a",
-      "id": "samplegraph",
-      "name": "샘플 그래프",
-      "description": "샘플",
-      "imageFile": "/files/default.png",
-      "created": "2017-07-20T02:03:43.438Z",
-      "learning": false,
-      "followed": 0,
-      "dialogsets": [
-        "5a1d306e0e6062d7da0a57ea"
-      ],
-      "learn": false,
-      "public": false,
-      "using": false,
-      "facebook": false,
-      "line": false,
-      "kakao": false,
-      "language": "ko",
-      "dialogs": []
-    }  
-    channel: {
-      "name": "socket"
-    }`
-    global: {
-      "dialogs": {},
-      "commonDialogs": {},
-      "tasks": {},
-      "actions": {},
-      "types": {},
-      "typeChecks": {},
-      "concepts": {},
-      "messages": {}
-    }
+* _id: mongo db id
+* name: 
+* mobile:
+* address: 
+ 
+### Session context
+currentDialog
+lastDialog
+history (dialog)
+
+### Topic context
+
+### Dialog context
+
+```
     dialog : {
       "inRaw": "안녕",
       "inNLP": "안녕",
@@ -668,7 +706,7 @@ context =
       "page": null,
       "numOfPage": null
     }
-}
+```
 
 
 ## 5. Bot
@@ -676,10 +714,13 @@ context =
 ### Bot 설정 정보
 bot 설정 정보는 OOO.bot.js 에 저장된다. 
 
+* version: bot의 버젼 (TOBE)
+* engineVersion: 엔진의 버젼(TOBE)
 * id: 내부 사용하는 id
 * name: 사용자에 표시되는 이름
 * description: 봇 설명
 * use: 해당 봇 사용 여부 
+* dev: 개발모드 인지 여부. 때로 실제 거래등을 하지 않고 테스트 하기 위해 개발모드 구분
 * public: 해당봇 공개 여부. 혼자만 사용하는 봇도 가능
 * language: 봇의 사용 언어
 * dialogFiles: Dialog Graph에서 OOO.graph.js 파일의 로딩 순서 설정. 기본은 알파벳 순으로 로딩되는데, graph.js에 있는 dialogs의 순서가 검색 우선순위가 되므로 로딩 순서를 바꿀 수 있게 한다. 
@@ -692,6 +733,7 @@ bot 설정 정보는 OOO.bot.js 에 저장된다.
 
 * useAutoCorrection: 오타수정 사용여부
 
+* useLearning(현재는 learning): 지식 학습 사용여부
 * quibble: 학습된 답변이 없을 경우. 둘러대기 답변 설정
 
 ```
@@ -750,9 +792,7 @@ channel : {
 * actions: Bot.setAction으로 설정된 모든 bot action
 * intents: bot에 만들어진 모든 intent 정보
 * entities: bot에 만들어진 모든 entity 정보
-* concepts: bot의 
-* messages
-
+* concepts: bot의 concepts (동의어) 정보
 
 botUser: {
 {
